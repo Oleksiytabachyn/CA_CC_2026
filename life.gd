@@ -31,9 +31,56 @@ var slider5_value=0
 var slider6_value=0
 
 var no_x=1010
-var no_y=750
+var no_y=820
 
+var save_location="user://SaveFile.json"
+var save_dictionary: Dictionary={
+	"example_1":[],
+	"charecteristics_1":[50,""],
+	
+	"example_2":[],
+	"charecteristics_2":[50],
+	
+	"example_3":[],
+	"charecteristics_3":[50],
+	
+	"example_4":[],
+	"charecteristics_4":[50],
+	
+	"example_5":[],
+	"charecteristics_5":[50],
+	
+	"example_6":[],
+	"charecteristics_6":[50],
+	
+	"example_7":[],
+	"charecteristics_7":[50],
+	
+	"example_8":[],
+	"charecteristics_8":[50],
+	
+	"example_9":[],
+	"charecteristics_9":[50],
+	
+	"example_10":[],
+	"charecteristics_10":[50],
+}
 
+func save_to_file():
+	var file=FileAccess.open(save_location,FileAccess.WRITE)
+	file.store_var(save_dictionary.duplicate(true))
+	file.close()
+
+func load_save():
+	var file=FileAccess.open(save_location,FileAccess.READ)
+	var data=file.get_var()
+	file.close()
+	
+	var save_data=data.duplicate(true)
+	print(save_data.example_1)
+	$menu/boardsettings/HSlider.value=save_data.charecteristics_1[0]
+	board=save_data.example_1
+	
 func change_instrument(channel, instrument):
 	var midi_event = InputEventMIDI.new()
 	midi_event.channel = channel
@@ -63,14 +110,18 @@ func play_note(note, duration, channel):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	DisplayServer.window_set_size(Vector2i(1152,2000))
+	
 	
 	var r=get_viewport_rect()
 	cell_size=r.size.y/float(size)
 	create_board()
+	#load_save()
 	create_count_board()
 	change_instrument(1,40)
 	change_instrument(2,24)
+	#save_to_file()
+	
+	
 	
 	pass # Replace with function body.
 
@@ -432,7 +483,7 @@ func _on_menu_pressed() -> void:
 		$menu.visibility_layer=true
 		menu=true
 		no_x=1010
-		no_y=750
+		no_y=820
 		
 	pass # Replace with function body.
 
@@ -455,4 +506,18 @@ func _on_h_slider_6_value_changed(value: float) -> void:
 	slider6_value=int($menu/musicalsettings/channels/HSlider6.value)
 	$menu/musicalsettings/channels/Label15.text="Lowest note "+str(slider6_value)
 	$menu/musicalsettings/channels/HSlider.min_value=slider6_value
+	pass # Replace with function body.
+	
+
+
+func _on_save_pressed() -> void:
+	save_dictionary.example_1=board
+	save_dictionary["charecteristics_1"][0]=size
+	save_to_file()
+	
+	pass # Replace with function body.
+
+
+func _on_load_pressed() -> void:
+	load_save()
 	pass # Replace with function body.

@@ -11,10 +11,21 @@
 script = ExtResource("1_bkce2")
 
 [node name="menu" type="Node2D" parent="." unique_id=1512452483]
-position = Vector2(680, 4)
+z_index = 1
+position = Vector2(1038, 87.00001)
 scale = Vector2(0.9, 0.9)
 
+[node name="ColorRect" type="ColorRect" parent="menu" unique_id=614760966]
+z_index = 1
+offset_left = -26.666748
+offset_top = 10.0
+offset_right = 484.44424
+offset_bottom = 730.0
+color = Color(0.29, 0.29, 0.29, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="Label" type="Label" parent="menu" unique_id=1349895563]
+z_index = 1
 offset_left = 174.00003
 offset_right = 219.00003
 offset_bottom = 23.0
@@ -23,41 +34,39 @@ text = "Menu"
 metadata/_edit_use_anchors_ = true
 
 [node name="control" type="Node2D" parent="menu" unique_id=622464344]
+z_index = 1
 
 [node name="Randomize" type="Button" parent="menu/control" unique_id=624032815]
-offset_left = 97.0
-offset_top = 88.0
-offset_right = 242.0
-offset_bottom = 128.0
+z_index = 1
+offset_left = 12.22216
+offset_top = 87.77778
+offset_right = 157.22217
+offset_bottom = 127.77778
 text = "Randomize board"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="menu/control" unique_id=2072658829]
-offset_top = 88.88889
-offset_right = 84.0
-offset_bottom = 128.88889
-text = "Start"
-metadata/_edit_use_anchors_ = true
-
 [node name="Button2" type="Button" parent="menu/control" unique_id=1570515197]
-offset_left = 253.3333
+z_index = 1
+offset_left = 176.66663
 offset_top = 86.666664
-offset_right = 370.3333
+offset_right = 293.66663
 offset_bottom = 126.666664
 text = "reset board"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="menu/control" unique_id=1493144101]
-offset_left = 374.0
-offset_top = 72.0
-offset_right = 497.0
-offset_bottom = 121.0
+z_index = 1
+offset_left = 345.55557
+offset_top = 65.55557
+offset_right = 469.55557
+offset_bottom = 114.55557
 text = "Game speed: 
 every 10 frames"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="menu/control" unique_id=1338625267]
+z_index = 1
 offset_left = 168.99997
 offset_top = 54.0
 offset_right = 274.99997
@@ -66,18 +75,21 @@ text = "control panel"
 metadata/_edit_use_anchors_ = true
 
 [node name="HSlider" type="HSlider" parent="menu/control" unique_id=1766615207]
-offset_left = 381.0
-offset_top = 120.0
-offset_right = 482.0
-offset_bottom = 136.0
+z_index = 1
+offset_left = 361.11108
+offset_top = 121.111115
+offset_right = 462.11108
+offset_bottom = 137.11111
 min_value = 1.0
 max_value = 60.0
 value = 10.0
 metadata/_edit_use_anchors_ = true
 
 [node name="boardsettings" type="Node2D" parent="menu" unique_id=1867133010]
+z_index = 1
 
 [node name="Button3" type="Button" parent="menu/boardsettings" unique_id=246664196]
+z_index = 1
 offset_left = -4.8888755
 offset_top = 247.11111
 offset_right = 175.11113
@@ -87,6 +99,7 @@ Click to set to rainbow"
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorPickerButton2" type="ColorPickerButton" parent="menu/boardsettings" unique_id=786591199]
+z_index = 1
 offset_left = 223.11113
 offset_top = 259.1111
 offset_right = 323.11115
@@ -95,6 +108,7 @@ color = Color(1, 1, 1, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="menu/boardsettings" unique_id=1312915397]
+z_index = 1
 offset_left = 232.11113
 offset_top = 236.11111
 offset_right = 327.11115
@@ -103,6 +117,7 @@ text = "Dead Tiles:"
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="menu/boardsettings" unique_id=904021600]
+z_index = 1
 offset_left = 177.11113
 offset_top = 250.11111
 offset_right = 206.11113
@@ -110,6 +125,7 @@ offset_bottom = 298.1111
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="menu/boardsettings" unique_id=725467017]
+z_index = 1
 offset_left = 362.1111
 offset_top = 241.11111
 offset_right = 469.1111
@@ -118,6 +134,7 @@ text = "board size: 50"
 metadata/_edit_use_anchors_ = true
 
 [node name="HSlider" type="HSlider" parent="menu/boardsettings" unique_id=614416804]
+z_index = 1
 offset_left = 357.1111
 offset_top = 268.1111
 offset_right = 437.9412
@@ -128,6 +145,7 @@ value = 50.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="menu/boardsettings" unique_id=1737124892]
+z_index = 1
 offset_left = 176.11113
 offset_top = 211.11111
 offset_right = 288.11115
@@ -136,8 +154,10 @@ text = "Board settings"
 metadata/_edit_use_anchors_ = true
 
 [node name="musicalsettings" type="Node2D" parent="menu" unique_id=1606436160]
+z_index = 1
 
 [node name="Label" type="Label" parent="menu/musicalsettings" unique_id=469237888]
+z_index = 1
 offset_left = 151.11113
 offset_top = 313.1111
 offset_right = 277.11115
@@ -146,6 +166,7 @@ text = "Musical Settings"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="menu/musicalsettings" unique_id=1707990959]
+z_index = 1
 offset_left = 3.1111245
 offset_top = 346.1111
 offset_right = 83.11112
@@ -154,6 +175,7 @@ text = "Born cells:"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox" type="CheckBox" parent="menu/musicalsettings" unique_id=1096823575]
+z_index = 1
 offset_left = 89.11112
 offset_top = 346.1111
 offset_right = 113.11112
@@ -162,8 +184,10 @@ button_pressed = true
 metadata/_edit_use_anchors_ = true
 
 [node name="borncells" type="Node2D" parent="menu/musicalsettings" unique_id=1323497085]
+z_index = 1
 
 [node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/borncells" unique_id=1858238563]
+z_index = 1
 offset_left = 51.111126
 offset_top = 369.1111
 offset_right = 154.11113
@@ -175,6 +199,7 @@ text = "channel 0
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/borncells" unique_id=529030868]
+z_index = 1
 offset_left = 159.11113
 offset_top = 372.1111
 offset_right = 262.11115
@@ -184,6 +209,7 @@ text = "channel 1"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox3" type="CheckBox" parent="menu/musicalsettings/borncells" unique_id=635937725]
+z_index = 1
 offset_left = 267.1111
 offset_top = 371.1111
 offset_right = 370.1111
@@ -203,6 +229,7 @@ text = "channel 9
 metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="menu/musicalsettings" unique_id=1209117579]
+z_index = 1
 offset_left = -5.8888755
 offset_top = 410.1111
 offset_right = 109.11112
@@ -211,6 +238,7 @@ text = "Cells that died:"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings" unique_id=1854296536]
+z_index = 1
 offset_left = 114.11112
 offset_top = 410.1111
 offset_right = 138.11111
@@ -219,8 +247,10 @@ button_pressed = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Cellsdied" type="Node2D" parent="menu/musicalsettings" unique_id=1628548458]
+z_index = 1
 
 [node name="CheckBox9" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=713902850]
+z_index = 1
 offset_left = 374.1111
 offset_top = 437.1111
 offset_right = 477.1111
@@ -230,6 +260,7 @@ text = "channel 9"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=929154338]
+z_index = 1
 offset_left = 42.111126
 offset_top = 433.1111
 offset_right = 145.11113
@@ -239,6 +270,7 @@ text = "channel 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=1581463576]
+z_index = 1
 offset_left = 150.11113
 offset_top = 436.1111
 offset_right = 253.11113
@@ -249,6 +281,7 @@ text = "channel 1"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=778721093]
+z_index = 1
 offset_left = 258.1111
 offset_top = 435.1111
 offset_right = 361.1111
@@ -258,6 +291,7 @@ text = "channel 2"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label4" type="Label" parent="menu/musicalsettings" unique_id=1972657535]
+z_index = 1
 offset_left = -7.8888755
 offset_top = 477.1111
 offset_right = 75.11112
@@ -266,6 +300,7 @@ text = "Dead cells:"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox3" type="CheckBox" parent="menu/musicalsettings" unique_id=1365399452]
+z_index = 1
 offset_left = 82.11112
 offset_top = 477.1111
 offset_right = 106.11112
@@ -274,8 +309,10 @@ button_pressed = true
 metadata/_edit_use_anchors_ = true
 
 [node name="deadcells" type="Node2D" parent="menu/musicalsettings" unique_id=1697719027]
+z_index = 1
 
 [node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=1150807699]
+z_index = 1
 offset_left = 40.111126
 offset_top = 500.1111
 offset_right = 143.11113
@@ -285,6 +322,7 @@ text = "channel 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=1362229328]
+z_index = 1
 offset_left = 148.11113
 offset_top = 503.1111
 offset_right = 251.11113
@@ -294,6 +332,7 @@ text = "channel 1"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=543565310]
+z_index = 1
 offset_left = 256.1111
 offset_top = 502.1111
 offset_right = 359.1111
@@ -304,6 +343,7 @@ text = "channel 2"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox9" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=646959693]
+z_index = 1
 offset_left = 369.1111
 offset_top = 502.1111
 offset_right = 472.1111
@@ -313,6 +353,7 @@ text = "channel 9"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label5" type="Label" parent="menu/musicalsettings" unique_id=33674099]
+z_index = 1
 offset_left = -8.888875
 offset_top = 539.1111
 offset_right = 138.11113
@@ -321,6 +362,7 @@ text = "Cells that survived:"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox8" type="CheckBox" parent="menu/musicalsettings" unique_id=236114100]
+z_index = 1
 offset_left = 144.11113
 offset_top = 540.1111
 offset_right = 168.11113
@@ -329,6 +371,7 @@ button_pressed = true
 metadata/_edit_use_anchors_ = true
 
 [node name="allivecells" type="Node2D" parent="menu/musicalsettings" unique_id=393568458]
+z_index = 1
 
 [node name="CheckBox9" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=704225220]
 offset_left = 379.1111
@@ -341,6 +384,7 @@ text = "channel 9"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=1486180097]
+z_index = 1
 offset_left = 47.111126
 offset_top = 562.1111
 offset_right = 150.11113
@@ -350,6 +394,7 @@ text = "channel 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=66549910]
+z_index = 1
 offset_left = 155.11113
 offset_top = 565.1111
 offset_right = 258.11115
@@ -359,6 +404,7 @@ text = "channel 1"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=541923628]
+z_index = 1
 offset_left = 263.1111
 offset_top = 564.1111
 offset_right = 366.1111
@@ -368,8 +414,10 @@ text = "channel 2"
 metadata/_edit_use_anchors_ = true
 
 [node name="channels" type="Node2D" parent="menu/musicalsettings" unique_id=1775736745]
+z_index = 1
 
 [node name="Label6" type="Label" parent="menu/musicalsettings/channels" unique_id=609510375]
+z_index = 1
 offset_left = -8.888875
 offset_top = 603.1111
 offset_right = 67.11112
@@ -378,6 +426,7 @@ text = "Channels:"
 metadata/_edit_use_anchors_ = true
 
 [node name="OptionButton" type="OptionButton" parent="menu/musicalsettings/channels" unique_id=21029045]
+z_index = 1
 offset_left = 69.11112
 offset_top = 625.1111
 offset_right = 186.11111
@@ -419,6 +468,7 @@ popup/item_15/id = 15
 metadata/_edit_use_anchors_ = true
 
 [node name="Label7" type="Label" parent="menu/musicalsettings/channels" unique_id=2063277994]
+z_index = 1
 offset_left = 89.11112
 offset_top = 600.1111
 offset_right = 166.11111
@@ -427,6 +477,7 @@ text = "Channel 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label8" type="Label" parent="menu/musicalsettings/channels" unique_id=637476480]
+z_index = 1
 offset_left = 224.11113
 offset_top = 599.1111
 offset_right = 301.11115
@@ -435,6 +486,7 @@ text = "Channel 1"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label9" type="Label" parent="menu/musicalsettings/channels" unique_id=8685245]
+z_index = 1
 offset_left = 370.11118
 offset_top = 602.1111
 offset_right = 447.11118
@@ -443,11 +495,12 @@ text = "Channel 2"
 metadata/_edit_use_anchors_ = true
 
 [node name="OptionButton2" type="OptionButton" parent="menu/musicalsettings/channels" unique_id=852549773]
+z_index = 1
 offset_left = 205.11113
 offset_top = 627.1111
 offset_right = 322.11115
 offset_bottom = 658.1111
-selected = 0
+selected = 5
 item_count = 16
 popup/item_0/text = "Piano"
 popup/item_0/id = 0
@@ -484,11 +537,12 @@ popup/item_15/id = 15
 metadata/_edit_use_anchors_ = true
 
 [node name="OptionButton3" type="OptionButton" parent="menu/musicalsettings/channels" unique_id=2128301763]
+z_index = 1
 offset_left = 345.11118
 offset_top = 628.1111
 offset_right = 462.11118
 offset_bottom = 659.1111
-selected = 0
+selected = 3
 item_count = 16
 popup/item_0/text = "Piano"
 popup/item_0/id = 0
@@ -525,13 +579,16 @@ popup/item_15/id = 15
 metadata/_edit_use_anchors_ = true
 
 [node name="Label12" type="Label" parent="menu/musicalsettings/channels" unique_id=1425605214]
+z_index = 1
 offset_left = 347.99997
 offset_top = 654.44434
 offset_right = 469.99997
 offset_bottom = 677.44434
 text = "Highest note:90"
+metadata/_edit_use_anchors_ = true
 
 [node name="HSlider3" type="HSlider" parent="menu/musicalsettings/channels" unique_id=1057231477]
+z_index = 1
 offset_left = 357.99997
 offset_top = 678.88885
 offset_right = 460.2222
@@ -539,15 +596,19 @@ offset_bottom = 694.88885
 min_value = 1.0
 max_value = 128.0
 value = 100.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label11" type="Label" parent="menu/musicalsettings/channels" unique_id=1954813441]
+z_index = 1
 offset_left = 203.55559
 offset_top = 655.55554
 offset_right = 325.5556
 offset_bottom = 678.55554
 text = "Highest note:90"
+metadata/_edit_use_anchors_ = true
 
 [node name="HSlider2" type="HSlider" parent="menu/musicalsettings/channels" unique_id=1285262669]
+z_index = 1
 offset_left = 218.00005
 offset_top = 678.88885
 offset_right = 320.2223
@@ -555,15 +616,19 @@ offset_bottom = 694.88885
 min_value = 1.0
 max_value = 128.0
 value = 100.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label10" type="Label" parent="menu/musicalsettings/channels" unique_id=1068339710]
+z_index = 1
 offset_left = 66.88889
 offset_top = 654.44446
 offset_right = 188.88889
 offset_bottom = 677.44446
 text = "Highest note:90"
+metadata/_edit_use_anchors_ = true
 
 [node name="HSlider" type="HSlider" parent="menu/musicalsettings/channels" unique_id=860739299]
+z_index = 1
 offset_left = 72.444435
 offset_top = 678.889
 offset_right = 174.66666
@@ -571,12 +636,28 @@ offset_bottom = 694.889
 min_value = 1.0
 max_value = 128.0
 value = 100.0
+metadata/_edit_use_anchors_ = true
 
 [node name="MidiPlayer" parent="." unique_id=8222357 instance=ExtResource("2_jesvm")]
 soundfont = "res://Aspirin-Stereo.sf2"
 
+[node name="Button2" type="Button" parent="." unique_id=1210962186]
+offset_left = 1276.0
+offset_top = 14.0
+offset_right = 1369.0
+offset_bottom = 47.0
+scale = Vector2(2, 2)
+text = "Hide Menu"
+
+[node name="Button3" type="Button" parent="." unique_id=1506100638]
+offset_left = 1090.0
+offset_top = 14.0
+offset_right = 1164.5
+offset_bottom = 47.0
+scale = Vector2(2, 2)
+text = "Start"
+
 [connection signal="pressed" from="menu/control/Randomize" to="." method="_on_randomize_pressed"]
-[connection signal="pressed" from="menu/control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu/control/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="value_changed" from="menu/control/HSlider" to="." method="_on_game_speed_value_changed"]
 [connection signal="pressed" from="menu/boardsettings/Button3" to="." method="_on_button_3_pressed"]
@@ -591,3 +672,5 @@ soundfont = "res://Aspirin-Stereo.sf2"
 [connection signal="value_changed" from="menu/musicalsettings/channels/HSlider3" to="." method="_on_h_slider_3_value_changed"]
 [connection signal="value_changed" from="menu/musicalsettings/channels/HSlider2" to="." method="_on_channel_2_value_changed"]
 [connection signal="value_changed" from="menu/musicalsettings/channels/HSlider" to="." method="_on_channel_0_value_changed"]
+[connection signal="pressed" from="Button2" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_pressed"]

@@ -6,6 +6,7 @@ var running=false
 var rainbow_on=false
 var lastcell=[-1,-1]
 var firstcell=[0,0]
+var menu=true
 
 var alive_cells=0
 var dead_cells=0
@@ -25,6 +26,10 @@ var game_speed_sec=game_speed/60.0
 var slider1_value=90
 var slider2_value=90
 var slider3_value=90
+
+var no_x=1010
+var no_y=750
+
 
 func change_instrument(channel, instrument):
 	var midi_event = InputEventMIDI.new()
@@ -55,10 +60,14 @@ func play_note(note, duration, channel):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	DisplayServer.window_set_size(Vector2i(1152,2000))
+	
 	var r=get_viewport_rect()
 	cell_size=r.size.y/float(size)
 	create_board()
 	create_count_board()
+	change_instrument(1,40)
+	change_instrument(2,24)
 	
 	pass # Replace with function body.
 
@@ -161,10 +170,10 @@ func _draw() -> void:
 func _on_button_pressed() -> void:
 	if running:
 		running=false
-		$menu/control/Button.text="Start"
+		$Button3.text="Start"
 	else:
 		running=true
-		$menu/control/Button.text="Stop"
+		$Button3.text="Stop"
 	
 
 
@@ -173,20 +182,49 @@ func _on_randomize_pressed() -> void:
 	pass # Replace with function body.
 	
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed :
+		if no_x<get_viewport().get_mouse_position().x and no_y>get_viewport().get_mouse_position().y:
+			return 
 		var vs=get_viewport_rect().size
 		var x=get_viewport().get_mouse_position().x
 		var y=get_viewport().get_mouse_position().y
+		
 		var r=floor(remap(y,0,vs.y,0,size))
 		var c=floor(remap(x,0,vs.y,0,size))
 		if c<size:
 			if board[r][c]:
 				board[r][c]=false
 			else:
-				board[r][c]=true 
-
+				board[r][c]=true
+	if Input.is_action_just_pressed("stop"):
+		if running:
+			running=false
+			$Button3.text="Start"
+		else:
+			running=true
+			$Button3.text="Stop"
+	if Input.is_action_just_pressed("menu"):
+		if menu:
+			$Button2.text="Menu"
+			$menu.visibility_layer=false
+			menu=false
+			no_x=1070
+			no_y=90
+		else:
+			$Button2.text="Hide Menu"
+			$menu.visibility_layer=true
+			menu=true
+			no_x=1010
+			no_y=750
+		
+		
 func paint():
+	if no_x<get_viewport().get_mouse_position().x and no_y>get_viewport().get_mouse_position().y:
+		return 
+		
+	
 	if Input.is_action_just_pressed("paint"):
+		
 		var vs=get_viewport_rect().size
 		var x=get_viewport().get_mouse_position().x
 		var y=get_viewport().get_mouse_position().y
@@ -199,7 +237,8 @@ func paint():
 			else:
 				board[r][c]=true
 		
-	elif Input.is_action_pressed("paint"):
+	if Input.is_action_pressed("paint"):
+		
 		var vs=get_viewport_rect().size
 		var x=get_viewport().get_mouse_position().x
 		var y=get_viewport().get_mouse_position().y
@@ -370,4 +409,21 @@ func _on_channel_2_value_changed(value: float) -> void:
 func _on_h_slider_3_value_changed(value: float) -> void:
 	slider3_value=int($menu/musicalsettings/channels/HSlider3.value)
 	$menu/musicalsettings/channels/Label12.text="Highest note "+str(slider3_value)
+	pass # Replace with function body.
+
+
+func _on_menu_pressed() -> void:
+	if menu:
+		$Button2.text="Menu"
+		$menu.visibility_layer=false
+		menu=false
+		no_x=1070
+		no_y=90
+	else:
+		$Button2.text="Hide Menu"
+		$menu.visibility_layer=true
+		menu=true
+		no_x=1010
+		no_y=750
+		
 	pass # Replace with function body.

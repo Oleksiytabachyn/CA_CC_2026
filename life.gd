@@ -496,7 +496,7 @@ func _on_channel_2_value_changed(value: float) -> void:
 func _on_h_slider_3_value_changed(value: float) -> void:
 	slider3_value=int($menu/musicalsettings/channels/HSlider3.value)
 	$menu/musicalsettings/channels/Label12.text="Highest note "+str(slider3_value)
-	$menu/musicalsettings/channels/HSlider4x.max_value=slider3_value
+	$menu/musicalsettings/channels/HSlider4.max_value=slider3_value
 	pass # Replace with function body.
 
 

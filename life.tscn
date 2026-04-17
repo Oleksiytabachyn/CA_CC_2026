@@ -17,10 +17,10 @@ scale = Vector2(0.9, 0.9)
 
 [node name="ColorRect" type="ColorRect" parent="menu" unique_id=614760966]
 z_index = 1
-offset_left = -10.000011
-offset_top = 23.333324
-offset_right = 501.111
-offset_bottom = 823.3333
+offset_left = -7.777789
+offset_top = 9.99999
+offset_right = 503.3332
+offset_bottom = 820.0
 color = Color(0.29, 0.29, 0.29, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -93,23 +93,67 @@ offset_bottom = 270.0
 text = "save"
 
 [node name="load" type="Button" parent="menu/control" unique_id=1434538254]
-offset_left = 348.88895
-offset_top = 225.55554
-offset_right = 475.55557
-offset_bottom = 265.55554
+offset_left = 351.11118
+offset_top = 229.99998
+offset_right = 477.7778
+offset_bottom = 270.0
 text = "load"
 
 [node name="OptionButton" type="OptionButton" parent="menu/control" unique_id=938869030]
-offset_left = 18.888916
-offset_top = 201.1111
-offset_right = 158.88892
-offset_bottom = 222.22221
+offset_left = 20.000027
+offset_top = 196.66666
+offset_right = 160.00003
+offset_bottom = 227.66666
+selected = 0
+item_count = 10
+popup/item_0/text = "1-empty"
+popup/item_0/id = 0
+popup/item_1/text = "2-empty"
+popup/item_1/id = 1
+popup/item_2/text = "3-empty"
+popup/item_2/id = 2
+popup/item_3/text = "4-empty"
+popup/item_3/id = 3
+popup/item_4/text = "5-empty"
+popup/item_4/id = 4
+popup/item_5/text = "6-empty"
+popup/item_5/id = 5
+popup/item_6/text = "7-empty"
+popup/item_6/id = 6
+popup/item_7/text = "8-empty"
+popup/item_7/id = 7
+popup/item_8/text = "9-empty"
+popup/item_8/id = 8
+popup/item_9/text = "10-empty"
+popup/item_9/id = 9
 
 [node name="OptionButton2" type="OptionButton" parent="menu/control" unique_id=2121585932]
 offset_left = 351.1111
 offset_top = 200.0
 offset_right = 473.3334
-offset_bottom = 221.11111
+offset_bottom = 224.44443
+selected = 0
+item_count = 10
+popup/item_0/text = "1-empty"
+popup/item_0/id = 0
+popup/item_1/text = "2-empty"
+popup/item_1/id = 1
+popup/item_2/text = "3-empty"
+popup/item_2/id = 2
+popup/item_3/text = "4-empty"
+popup/item_3/id = 3
+popup/item_4/text = "5-empty"
+popup/item_4/id = 4
+popup/item_5/text = "6-empty"
+popup/item_5/id = 5
+popup/item_6/text = "7-empty"
+popup/item_6/id = 6
+popup/item_7/text = "8-empty"
+popup/item_7/id = 7
+popup/item_8/text = "9-empty"
+popup/item_8/id = 8
+popup/item_9/text = "10-empty"
+popup/item_9/id = 9
 
 [node name="Label3" type="Label" parent="menu/control" unique_id=370486989]
 offset_left = 347.7778
@@ -127,10 +171,10 @@ offset_right = 306.66663
 offset_bottom = 226.66667
 
 [node name="Label4" type="Label" parent="menu/control" unique_id=1865106643]
-offset_left = 17.777779
-offset_top = 152.22223
-offset_right = 157.77777
-offset_bottom = 201.22223
+offset_left = 16.666668
+offset_top = 151.11111
+offset_right = 156.66667
+offset_bottom = 200.11111
 text = "Pick a spot where 
 to save"
 horizontal_alignment = 1

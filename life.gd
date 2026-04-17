@@ -39,32 +39,34 @@ var save_dictionary: Dictionary={
 	"charecteristics_1":[50,""],
 	
 	"example_2":[],
-	"charecteristics_2":[50],
+	"charecteristics_2":[50,""],
 	
 	"example_3":[],
-	"charecteristics_3":[50],
+	"charecteristics_3":[50,""],
 	
 	"example_4":[],
-	"charecteristics_4":[50],
+	"charecteristics_4":[50,""],
 	
 	"example_5":[],
-	"charecteristics_5":[50],
+	"charecteristics_5":[50,""],
 	
 	"example_6":[],
-	"charecteristics_6":[50],
+	"charecteristics_6":[50,""],
 	
 	"example_7":[],
-	"charecteristics_7":[50],
+	"charecteristics_7":[50,""],
 	
 	"example_8":[],
-	"charecteristics_8":[50],
+	"charecteristics_8":[50,""],
 	
 	"example_9":[],
-	"charecteristics_9":[50],
+	"charecteristics_9":[50,""],
 	
 	"example_10":[],
-	"charecteristics_10":[50],
+	"charecteristics_10":[50,""],
 }
+
+var check_board=[]
 
 func save_to_file():
 	var file=FileAccess.open(save_location,FileAccess.WRITE)
@@ -77,9 +79,31 @@ func load_save():
 	file.close()
 	
 	var save_data=data.duplicate(true)
-	print(save_data.example_1)
-	$menu/boardsettings/HSlider.value=save_data.charecteristics_1[0]
-	board=save_data.example_1
+	var save_num=$menu/control/OptionButton2.get_selected_id()
+	$menu/boardsettings/HSlider.value=save_data["charecteristics_"+str(save_num+1)][0]
+	board=save_data["example_"+str(save_num+1)]
+
+func initialize_save():
+	var file=FileAccess.open(save_location,FileAccess.READ)
+	var data=file.get_var()
+	file.close()
+	
+	var save_data=data.duplicate(true)
+	
+	for i in range(10):
+		$menu/control/OptionButton.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
+		$menu/control/OptionButton2.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
+		save_dictionary["charecteristics_"+str(i+1)][1]=save_data["charecteristics_"+str(i+1)][1]
+		save_dictionary["charecteristics_"+str(i+1)][0]=save_data["charecteristics_"+str(i+1)][1]
+		save_dictionary["example_"+str(i+1)]=save_data["example_"+str(i+1)].duplicate(true)
+
+func create_check_board():
+	check_board=[]
+	for i in range(size):
+		var row=[]
+		for j in range(size):
+			row.append(false)
+		check_board.append(row)
 	
 func change_instrument(channel, instrument):
 	var midi_event = InputEventMIDI.new()
@@ -111,15 +135,16 @@ func play_note(note, duration, channel):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	
+	print(check_board)
 	var r=get_viewport_rect()
 	cell_size=r.size.y/float(size)
 	create_board()
-	#load_save()
+	
 	create_count_board()
+	create_check_board()
 	change_instrument(1,40)
 	change_instrument(2,24)
-	#save_to_file()
+	initialize_save()
 	
 	
 	
@@ -150,6 +175,7 @@ func draw_board():
 			var x = remap(c, 0, size, 0, vs.y)
 			var y = remap(r, 0, size, 0, vs.y)
 			var col = $menu/boardsettings/ColorPickerButton2.color
+			
 			if board[r][c]==true:
 				if rainbow_on:
 					col=Color.from_hsv((r+c)/float(size*2),1,1)
@@ -202,7 +228,7 @@ func board_update():
 			else:
 				alive_cells+=i*int(size)+j		
 			
-
+	
 	
 	
 	
@@ -250,7 +276,7 @@ func _input(event: InputEvent) -> void:
 				board[r][c]=false
 			else:
 				board[r][c]=true
-	if Input.is_action_just_pressed("stop"):
+	'''if Input.is_action_just_pressed("stop"):
 		if running:
 			running=false
 			$Button3.text="Start"
@@ -269,7 +295,7 @@ func _input(event: InputEvent) -> void:
 			$menu.visibility_layer=true
 			menu=true
 			no_x=1010
-			no_y=750
+			no_y=820'''
 		
 		
 func paint():
@@ -399,6 +425,7 @@ func _on_h_slider_value_changed(value: float) -> void:
 	cell_size=r.size.y/float(size)
 	create_board()
 	create_count_board()
+	create_check_board()
 	pass # Replace with function body.
 
 
@@ -511,8 +538,20 @@ func _on_h_slider_6_value_changed(value: float) -> void:
 
 
 func _on_save_pressed() -> void:
-	save_dictionary.example_1=board
-	save_dictionary["charecteristics_1"][0]=size
+	var layout_num=$menu/control/OptionButton.get_selected_id()
+	save_dictionary["example_"+str(layout_num+1)]=board
+	save_dictionary["charecteristics_"+str(layout_num+1)][0]=size
+	var text=$menu/control/TextEdit.text if $menu/control/TextEdit.text!="" else "layout "+str(layout_num+1)
+	if board==check_board:
+		text="empty"
+		
+		
+		
+		
+	$menu/control/OptionButton.set_item_text(layout_num,str(layout_num+1)+"-"+text)
+	$menu/control/OptionButton2.set_item_text(layout_num,str(layout_num+1)+"-"+text)
+	save_dictionary["charecteristics_"+str(layout_num+1)][1]=str(layout_num+1)+"-"+text
+	print(save_dictionary["charecteristics_"+str(layout_num+1)][1])
 	save_to_file()
 	
 	pass # Replace with function body.

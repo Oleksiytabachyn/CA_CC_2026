@@ -66,6 +66,8 @@ var save_dictionary: Dictionary={
 	"charecteristics_10":[50,""],
 }
 
+
+
 var check_board=[]
 
 func save_to_file():
@@ -135,7 +137,7 @@ func play_note(note, duration, channel):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	print(check_board)
+	
 	var r=get_viewport_rect()
 	cell_size=r.size.y/float(size)
 	create_board()
@@ -345,58 +347,58 @@ func play_music():
 	if $menu/musicalsettings/CheckBox8.button_pressed:
 		if $menu/musicalsettings/allivecells/CheckBox.button_pressed:
 			play_note(alive_cells_note%chan1_modif+slider6_value,game_speed_sec,0)
-			print(00)
+			
 		elif $menu/musicalsettings/allivecells/CheckBox1.button_pressed:
 			play_note(alive_cells_note%chan2_modif+slider5_value,game_speed_sec,1)
-			print(01)
+			
 		elif $menu/musicalsettings/allivecells/CheckBox2.button_pressed:
 			play_note(alive_cells_note%chan3_modif+slider4_value,game_speed_sec,2)
-			print(02)
+			
 		else:
 			play_note(alive_cells_note,game_speed_sec,9)
-			print(03)
+			
 	if $menu/musicalsettings/CheckBox.button_pressed:
 		
 		if $menu/musicalsettings/borncells/CheckBox.button_pressed:
 			play_note(cells_born_note%chan1_modif+slider6_value,game_speed_sec,0)
-			print(10)
+			
 		elif $menu/musicalsettings/borncells/CheckBox2.button_pressed:
 			play_note(cells_born_note%chan2_modif+slider5_value,game_speed_sec,1)
-			print(11)
+			
 		elif $menu/musicalsettings/borncells/CheckBox3.button_pressed:
 			play_note(cells_born_note%chan3_modif+slider4_value,game_speed_sec,2)
-			print(12)
+			
 		else:
 			play_note(cells_born_note,game_speed_sec,9)
-			print(13)
+			
 	if $menu/musicalsettings/CheckBox2.button_pressed:
 		
 		if $menu/musicalsettings/Cellsdied/CheckBox.button_pressed:
 			play_note(cells_died_note%chan1_modif+slider6_value,game_speed_sec,0)
-			print(20)
+			
 		elif $menu/musicalsettings/Cellsdied/CheckBox1.button_pressed:
 			play_note(cells_died_note%chan2_modif+slider5_value,game_speed_sec,1)
-			print(21)
+			
 		elif $menu/musicalsettings/Cellsdied/CheckBox2.button_pressed:
 			play_note(cells_died_note%chan3_modif+slider4_value,game_speed_sec,2)
-			print(22)
+			
 		else:
 			play_note(cells_died_note,game_speed_sec,9)
-			print(23)
+			
 	if $menu/musicalsettings/CheckBox3.button_pressed:
 		if $menu/musicalsettings/deadcells/CheckBox.button_pressed:
 			play_note(dead_cells_note%chan1_modif+slider6_value,game_speed_sec,0)
-			print(30)
+			
 		elif $menu/musicalsettings/deadcells/CheckBox1.button_pressed:
 			play_note(dead_cells_note%chan2_modif+slider5_value,game_speed_sec,1)
-			print(31)
+			
 
 		elif $menu/musicalsettings/deadcells/CheckBox2.button_pressed:
 			play_note(dead_cells_note%chan3_modif+slider4_value,game_speed_sec,2)
-			print(32)
+			
 		else:
 			play_note(dead_cells_note,game_speed_sec,9)
-			print(33)
+			
 	pass
 
 func _on_button_2_pressed() -> void:
@@ -460,19 +462,19 @@ func _on_check_box_8_toggled(toggled_on: bool) -> void:
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	print(index)
+	
 	change_instrument(0,index*8)
 	pass # Replace with function body.
 
 
 func _on_option_button_2_item_selected(index: int) -> void:
-	print(index)
+	
 	change_instrument(1,index*8)
 	pass # Replace with function body.
 
 
 func _on_option_button_3_item_selected(index: int) -> void:
-	print(index)
+	
 	change_instrument(2,index*8)
 	pass # Replace with function body.
 
@@ -551,7 +553,6 @@ func _on_save_pressed() -> void:
 	$menu/control/OptionButton.set_item_text(layout_num,str(layout_num+1)+"-"+text)
 	$menu/control/OptionButton2.set_item_text(layout_num,str(layout_num+1)+"-"+text)
 	save_dictionary["charecteristics_"+str(layout_num+1)][1]=str(layout_num+1)+"-"+text
-	print(save_dictionary["charecteristics_"+str(layout_num+1)][1])
 	save_to_file()
 	
 	pass # Replace with function body.

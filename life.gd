@@ -36,34 +36,34 @@ var no_y=820
 var save_location="user://SaveFile.json"
 var save_dictionary: Dictionary={
 	"example_1":[],
-	"charecteristics_1":[50,""],
+	"charecteristics_1":[50,"1-empty"],
 	
 	"example_2":[],
-	"charecteristics_2":[50,""],
+	"charecteristics_2":[50,"2-empty"],
 	
 	"example_3":[],
-	"charecteristics_3":[50,""],
+	"charecteristics_3":[50,"3-empty"],
 	
 	"example_4":[],
-	"charecteristics_4":[50,""],
+	"charecteristics_4":[50,"4-empty"],
 	
 	"example_5":[],
-	"charecteristics_5":[50,""],
+	"charecteristics_5":[50,"5-empty"],
 	
 	"example_6":[],
-	"charecteristics_6":[50,""],
+	"charecteristics_6":[50,"6-empty"],
 	
 	"example_7":[],
-	"charecteristics_7":[50,""],
+	"charecteristics_7":[50,"7-empty"],
 	
 	"example_8":[],
-	"charecteristics_8":[50,""],
+	"charecteristics_8":[50,"8-empty"],
 	
 	"example_9":[],
-	"charecteristics_9":[50,""],
+	"charecteristics_9":[50,"9-empty"],
 	
 	"example_10":[],
-	"charecteristics_10":[50,""],
+	"charecteristics_10":[50,"10-empty"],
 }
 
 
@@ -76,28 +76,41 @@ func save_to_file():
 	file.close()
 
 func load_save():
-	var file=FileAccess.open(save_location,FileAccess.READ)
-	var data=file.get_var()
-	file.close()
-	
-	var save_data=data.duplicate(true)
-	var save_num=$menu/control/OptionButton2.get_selected_id()
-	$menu/boardsettings/HSlider.value=save_data["charecteristics_"+str(save_num+1)][0]
-	board=save_data["example_"+str(save_num+1)]
+		var file=FileAccess.open(save_location,FileAccess.READ)
+		var data=file.get_var()
+		file.close()
+		
+		var save_data=data.duplicate(true)
+		var save_num=$menu/control/OptionButton2.get_selected_id()
+		print(save_data["charecteristics_"+str(save_num+1)][0])
+		$menu/boardsettings/HSlider.value=save_data["charecteristics_"+str(save_num+1)][0]
+		board=save_data["example_"+str(save_num+1)]
 
 func initialize_save():
-	var file=FileAccess.open(save_location,FileAccess.READ)
-	var data=file.get_var()
-	file.close()
+	if FileAccess.file_exists(save_location):
+		var file=FileAccess.open(save_location,FileAccess.READ)
+		var data=file.get_var()
+		file.close()
+		
+		var save_data=data.duplicate(true)
 	
-	var save_data=data.duplicate(true)
-	
-	for i in range(10):
-		$menu/control/OptionButton.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
-		$menu/control/OptionButton2.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
-		save_dictionary["charecteristics_"+str(i+1)][1]=save_data["charecteristics_"+str(i+1)][1]
-		save_dictionary["charecteristics_"+str(i+1)][0]=save_data["charecteristics_"+str(i+1)][1]
-		save_dictionary["example_"+str(i+1)]=save_data["example_"+str(i+1)].duplicate(true)
+		for i in range(10):
+			$menu/control/OptionButton.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
+			$menu/control/OptionButton2.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
+			save_dictionary["charecteristics_"+str(i+1)][1]=save_data["charecteristics_"+str(i+1)][1]
+			save_dictionary["charecteristics_"+str(i+1)][0]=save_data["charecteristics_"+str(i+1)][1]
+			save_dictionary["example_"+str(i+1)]=save_data["example_"+str(i+1)].duplicate(true)
+	else:
+		for i in range(10):
+			save_dictionary["example_"+str(i+1)]=board
+			save_dictionary["charecteristics_"+str(i+1)][0]=size
+			var text="empty"
+			$menu/control/OptionButton.set_item_text(i,str(i+1)+"-"+text)
+			$menu/control/OptionButton2.set_item_text(i,str(i+1)+"-"+text)
+			save_dictionary["charecteristics_"+str(i+1)][1]=str(i+1)+"-"+text
+			save_to_file()
+		
+		
 
 func create_check_board():
 	check_board=[]
@@ -141,13 +154,12 @@ func _ready() -> void:
 	var r=get_viewport_rect()
 	cell_size=r.size.y/float(size)
 	create_board()
-	
+	initialize_save()
 	create_count_board()
 	create_check_board()
 	change_instrument(1,40)
 	change_instrument(2,24)
 	initialize_save()
-	
 	
 	
 	pass # Replace with function body.

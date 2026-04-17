@@ -1,0 +1,593 @@
+[gd_scene format=3 uid="uid://rb0qmaups3u8"]
+
+[ext_resource type="Script" uid="uid://bbfukmh8fn7ku" path="res://life.gd" id="1_bkce2"]
+[ext_resource type="ButtonGroup" uid="uid://c8e6gffjrpi41" path="res://button_group_born.tres" id="2_8thvb"]
+[ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="2_jesvm"]
+[ext_resource type="ButtonGroup" uid="uid://v584xd2w6jfh" path="res://died.tres" id="3_kt3ow"]
+[ext_resource type="ButtonGroup" uid="uid://05h5b4j6a818" path="res://dead.tres" id="4_43o0x"]
+[ext_resource type="ButtonGroup" uid="uid://cehxcfphblbtg" path="res://survived.tres" id="5_g02ej"]
+
+[node name="life" type="Node2D" unique_id=1881758329]
+script = ExtResource("1_bkce2")
+
+[node name="menu" type="Node2D" parent="." unique_id=1512452483]
+position = Vector2(680, 4)
+scale = Vector2(0.9, 0.9)
+
+[node name="Label" type="Label" parent="menu" unique_id=1349895563]
+offset_left = 174.00003
+offset_right = 219.00003
+offset_bottom = 23.0
+scale = Vector2(2, 2)
+text = "Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="control" type="Node2D" parent="menu" unique_id=622464344]
+
+[node name="Randomize" type="Button" parent="menu/control" unique_id=624032815]
+offset_left = 97.0
+offset_top = 88.0
+offset_right = 242.0
+offset_bottom = 128.0
+text = "Randomize board"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="menu/control" unique_id=2072658829]
+offset_top = 88.88889
+offset_right = 84.0
+offset_bottom = 128.88889
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="menu/control" unique_id=1570515197]
+offset_left = 253.3333
+offset_top = 86.666664
+offset_right = 370.3333
+offset_bottom = 126.666664
+text = "reset board"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="menu/control" unique_id=1493144101]
+offset_left = 374.0
+offset_top = 72.0
+offset_right = 497.0
+offset_bottom = 121.0
+text = "Game speed: 
+every 10 frames"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="menu/control" unique_id=1338625267]
+offset_left = 168.99997
+offset_top = 54.0
+offset_right = 274.99997
+offset_bottom = 77.0
+text = "control panel"
+metadata/_edit_use_anchors_ = true
+
+[node name="HSlider" type="HSlider" parent="menu/control" unique_id=1766615207]
+offset_left = 381.0
+offset_top = 120.0
+offset_right = 482.0
+offset_bottom = 136.0
+min_value = 1.0
+max_value = 60.0
+value = 10.0
+metadata/_edit_use_anchors_ = true
+
+[node name="boardsettings" type="Node2D" parent="menu" unique_id=1867133010]
+
+[node name="Button3" type="Button" parent="menu/boardsettings" unique_id=246664196]
+offset_left = -4.8888755
+offset_top = 247.11111
+offset_right = 175.11113
+offset_bottom = 301.1111
+text = "Alive Tiles: 
+Click to set to rainbow"
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorPickerButton2" type="ColorPickerButton" parent="menu/boardsettings" unique_id=786591199]
+offset_left = 223.11113
+offset_top = 259.1111
+offset_right = 323.11115
+offset_bottom = 300.1111
+color = Color(1, 1, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="menu/boardsettings" unique_id=1312915397]
+offset_left = 232.11113
+offset_top = 236.11111
+offset_right = 327.11115
+offset_bottom = 268.1111
+text = "Dead Tiles:"
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="menu/boardsettings" unique_id=904021600]
+offset_left = 177.11113
+offset_top = 250.11111
+offset_right = 206.11113
+offset_bottom = 298.1111
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="menu/boardsettings" unique_id=725467017]
+offset_left = 362.1111
+offset_top = 241.11111
+offset_right = 469.1111
+offset_bottom = 264.1111
+text = "board size: 50"
+metadata/_edit_use_anchors_ = true
+
+[node name="HSlider" type="HSlider" parent="menu/boardsettings" unique_id=614416804]
+offset_left = 357.1111
+offset_top = 268.1111
+offset_right = 437.9412
+offset_bottom = 284.9509
+scale = Vector2(1.4722223, 1.0095137)
+min_value = 5.0
+value = 50.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="menu/boardsettings" unique_id=1737124892]
+offset_left = 176.11113
+offset_top = 211.11111
+offset_right = 288.11115
+offset_bottom = 236.11111
+text = "Board settings"
+metadata/_edit_use_anchors_ = true
+
+[node name="musicalsettings" type="Node2D" parent="menu" unique_id=1606436160]
+
+[node name="Label" type="Label" parent="menu/musicalsettings" unique_id=469237888]
+offset_left = 151.11113
+offset_top = 313.1111
+offset_right = 277.11115
+offset_bottom = 336.1111
+text = "Musical Settings"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="menu/musicalsettings" unique_id=1707990959]
+offset_left = 3.1111245
+offset_top = 346.1111
+offset_right = 83.11112
+offset_bottom = 369.1111
+text = "Born cells:"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox" type="CheckBox" parent="menu/musicalsettings" unique_id=1096823575]
+offset_left = 89.11112
+offset_top = 346.1111
+offset_right = 113.11112
+offset_bottom = 370.1111
+button_pressed = true
+metadata/_edit_use_anchors_ = true
+
+[node name="borncells" type="Node2D" parent="menu/musicalsettings" unique_id=1323497085]
+
+[node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/borncells" unique_id=1858238563]
+offset_left = 51.111126
+offset_top = 369.1111
+offset_right = 154.11113
+offset_bottom = 401.1111
+button_pressed = true
+button_group = ExtResource("2_8thvb")
+text = "channel 0
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/borncells" unique_id=529030868]
+offset_left = 159.11113
+offset_top = 372.1111
+offset_right = 262.11115
+offset_bottom = 404.1111
+button_group = ExtResource("2_8thvb")
+text = "channel 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox3" type="CheckBox" parent="menu/musicalsettings/borncells" unique_id=635937725]
+offset_left = 267.1111
+offset_top = 371.1111
+offset_right = 370.1111
+offset_bottom = 403.1111
+button_group = ExtResource("2_8thvb")
+text = "channel 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox4" type="CheckBox" parent="menu/musicalsettings/borncells" unique_id=897203124]
+offset_left = 380.1111
+offset_top = 371.1111
+offset_right = 483.1111
+offset_bottom = 403.1111
+button_group = ExtResource("2_8thvb")
+text = "channel 9
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="menu/musicalsettings" unique_id=1209117579]
+offset_left = -5.8888755
+offset_top = 410.1111
+offset_right = 109.11112
+offset_bottom = 433.1111
+text = "Cells that died:"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings" unique_id=1854296536]
+offset_left = 114.11112
+offset_top = 410.1111
+offset_right = 138.11111
+offset_bottom = 434.1111
+button_pressed = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Cellsdied" type="Node2D" parent="menu/musicalsettings" unique_id=1628548458]
+
+[node name="CheckBox9" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=713902850]
+offset_left = 374.1111
+offset_top = 437.1111
+offset_right = 477.1111
+offset_bottom = 469.1111
+button_group = ExtResource("3_kt3ow")
+text = "channel 9"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=929154338]
+offset_left = 42.111126
+offset_top = 433.1111
+offset_right = 145.11113
+offset_bottom = 465.1111
+button_group = ExtResource("3_kt3ow")
+text = "channel 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=1581463576]
+offset_left = 150.11113
+offset_top = 436.1111
+offset_right = 253.11113
+offset_bottom = 468.1111
+button_pressed = true
+button_group = ExtResource("3_kt3ow")
+text = "channel 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=778721093]
+offset_left = 258.1111
+offset_top = 435.1111
+offset_right = 361.1111
+offset_bottom = 467.1111
+button_group = ExtResource("3_kt3ow")
+text = "channel 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="menu/musicalsettings" unique_id=1972657535]
+offset_left = -7.8888755
+offset_top = 477.1111
+offset_right = 75.11112
+offset_bottom = 500.1111
+text = "Dead cells:"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox3" type="CheckBox" parent="menu/musicalsettings" unique_id=1365399452]
+offset_left = 82.11112
+offset_top = 477.1111
+offset_right = 106.11112
+offset_bottom = 501.1111
+button_pressed = true
+metadata/_edit_use_anchors_ = true
+
+[node name="deadcells" type="Node2D" parent="menu/musicalsettings" unique_id=1697719027]
+
+[node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=1150807699]
+offset_left = 40.111126
+offset_top = 500.1111
+offset_right = 143.11113
+offset_bottom = 532.1111
+button_group = ExtResource("4_43o0x")
+text = "channel 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=1362229328]
+offset_left = 148.11113
+offset_top = 503.1111
+offset_right = 251.11113
+offset_bottom = 535.1111
+button_group = ExtResource("4_43o0x")
+text = "channel 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=543565310]
+offset_left = 256.1111
+offset_top = 502.1111
+offset_right = 359.1111
+offset_bottom = 534.1111
+button_pressed = true
+button_group = ExtResource("4_43o0x")
+text = "channel 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox9" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=646959693]
+offset_left = 369.1111
+offset_top = 502.1111
+offset_right = 472.1111
+offset_bottom = 534.1111
+button_group = ExtResource("4_43o0x")
+text = "channel 9"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="menu/musicalsettings" unique_id=33674099]
+offset_left = -8.888875
+offset_top = 539.1111
+offset_right = 138.11113
+offset_bottom = 562.1111
+text = "Cells that survived:"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox8" type="CheckBox" parent="menu/musicalsettings" unique_id=236114100]
+offset_left = 144.11113
+offset_top = 540.1111
+offset_right = 168.11113
+offset_bottom = 564.1111
+button_pressed = true
+metadata/_edit_use_anchors_ = true
+
+[node name="allivecells" type="Node2D" parent="menu/musicalsettings" unique_id=393568458]
+
+[node name="CheckBox9" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=704225220]
+offset_left = 379.1111
+offset_top = 566.1111
+offset_right = 482.1111
+offset_bottom = 598.1111
+button_pressed = true
+button_group = ExtResource("5_g02ej")
+text = "channel 9"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=1486180097]
+offset_left = 47.111126
+offset_top = 562.1111
+offset_right = 150.11113
+offset_bottom = 594.1111
+button_group = ExtResource("5_g02ej")
+text = "channel 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=66549910]
+offset_left = 155.11113
+offset_top = 565.1111
+offset_right = 258.11115
+offset_bottom = 597.1111
+button_group = ExtResource("5_g02ej")
+text = "channel 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=541923628]
+offset_left = 263.1111
+offset_top = 564.1111
+offset_right = 366.1111
+offset_bottom = 596.1111
+button_group = ExtResource("5_g02ej")
+text = "channel 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="channels" type="Node2D" parent="menu/musicalsettings" unique_id=1775736745]
+
+[node name="Label6" type="Label" parent="menu/musicalsettings/channels" unique_id=609510375]
+offset_left = -8.888875
+offset_top = 603.1111
+offset_right = 67.11112
+offset_bottom = 626.1111
+text = "Channels:"
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionButton" type="OptionButton" parent="menu/musicalsettings/channels" unique_id=21029045]
+offset_left = 69.11112
+offset_top = 625.1111
+offset_right = 186.11111
+offset_bottom = 656.1111
+selected = 0
+item_count = 16
+popup/item_0/text = "Piano"
+popup/item_0/id = 0
+popup/item_1/text = "Bells"
+popup/item_1/id = 1
+popup/item_2/text = "Organ"
+popup/item_2/id = 2
+popup/item_3/text = "Guitar"
+popup/item_3/id = 3
+popup/item_4/text = "Bass"
+popup/item_4/id = 4
+popup/item_5/text = "Violin"
+popup/item_5/id = 5
+popup/item_6/text = "Orchestra"
+popup/item_6/id = 6
+popup/item_7/text = "Trumpet"
+popup/item_7/id = 7
+popup/item_8/text = "Sax"
+popup/item_8/id = 8
+popup/item_9/text = "Flute"
+popup/item_9/id = 9
+popup/item_10/text = "Lead"
+popup/item_10/id = 10
+popup/item_11/text = "Pad"
+popup/item_11/id = 11
+popup/item_12/text = "Effects"
+popup/item_12/id = 12
+popup/item_13/text = "Sitar"
+popup/item_13/id = 13
+popup/item_14/text = "Percussion"
+popup/item_14/id = 14
+popup/item_15/text = "Sd_effects"
+popup/item_15/id = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="Label7" type="Label" parent="menu/musicalsettings/channels" unique_id=2063277994]
+offset_left = 89.11112
+offset_top = 600.1111
+offset_right = 166.11111
+offset_bottom = 623.1111
+text = "Channel 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label8" type="Label" parent="menu/musicalsettings/channels" unique_id=637476480]
+offset_left = 224.11113
+offset_top = 599.1111
+offset_right = 301.11115
+offset_bottom = 622.1111
+text = "Channel 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label9" type="Label" parent="menu/musicalsettings/channels" unique_id=8685245]
+offset_left = 370.11118
+offset_top = 602.1111
+offset_right = 447.11118
+offset_bottom = 625.1111
+text = "Channel 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionButton2" type="OptionButton" parent="menu/musicalsettings/channels" unique_id=852549773]
+offset_left = 205.11113
+offset_top = 627.1111
+offset_right = 322.11115
+offset_bottom = 658.1111
+selected = 0
+item_count = 16
+popup/item_0/text = "Piano"
+popup/item_0/id = 0
+popup/item_1/text = "Bells"
+popup/item_1/id = 1
+popup/item_2/text = "Organ"
+popup/item_2/id = 2
+popup/item_3/text = "Guitar"
+popup/item_3/id = 3
+popup/item_4/text = "Bass"
+popup/item_4/id = 4
+popup/item_5/text = "Violin"
+popup/item_5/id = 5
+popup/item_6/text = "Orchestra"
+popup/item_6/id = 6
+popup/item_7/text = "Trumpet"
+popup/item_7/id = 7
+popup/item_8/text = "Sax"
+popup/item_8/id = 8
+popup/item_9/text = "Flute"
+popup/item_9/id = 9
+popup/item_10/text = "Lead"
+popup/item_10/id = 10
+popup/item_11/text = "Pad"
+popup/item_11/id = 11
+popup/item_12/text = "Effects"
+popup/item_12/id = 12
+popup/item_13/text = "Sitar"
+popup/item_13/id = 13
+popup/item_14/text = "Percussion"
+popup/item_14/id = 14
+popup/item_15/text = "Sd_effects"
+popup/item_15/id = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionButton3" type="OptionButton" parent="menu/musicalsettings/channels" unique_id=2128301763]
+offset_left = 345.11118
+offset_top = 628.1111
+offset_right = 462.11118
+offset_bottom = 659.1111
+selected = 0
+item_count = 16
+popup/item_0/text = "Piano"
+popup/item_0/id = 0
+popup/item_1/text = "Bells"
+popup/item_1/id = 1
+popup/item_2/text = "Organ"
+popup/item_2/id = 2
+popup/item_3/text = "Guitar"
+popup/item_3/id = 3
+popup/item_4/text = "Bass"
+popup/item_4/id = 4
+popup/item_5/text = "Violin"
+popup/item_5/id = 5
+popup/item_6/text = "Orchestra"
+popup/item_6/id = 6
+popup/item_7/text = "Trumpet"
+popup/item_7/id = 7
+popup/item_8/text = "Sax"
+popup/item_8/id = 8
+popup/item_9/text = "Flute"
+popup/item_9/id = 9
+popup/item_10/text = "Lead"
+popup/item_10/id = 10
+popup/item_11/text = "Pad"
+popup/item_11/id = 11
+popup/item_12/text = "Effects"
+popup/item_12/id = 12
+popup/item_13/text = "Sitar"
+popup/item_13/id = 13
+popup/item_14/text = "Percussion"
+popup/item_14/id = 14
+popup/item_15/text = "Sd_effects"
+popup/item_15/id = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="Label12" type="Label" parent="menu/musicalsettings/channels" unique_id=1425605214]
+offset_left = 347.99997
+offset_top = 654.44434
+offset_right = 469.99997
+offset_bottom = 677.44434
+text = "Highest note:90"
+
+[node name="HSlider3" type="HSlider" parent="menu/musicalsettings/channels" unique_id=1057231477]
+offset_left = 357.99997
+offset_top = 678.88885
+offset_right = 460.2222
+offset_bottom = 694.88885
+min_value = 1.0
+max_value = 128.0
+value = 100.0
+
+[node name="Label11" type="Label" parent="menu/musicalsettings/channels" unique_id=1954813441]
+offset_left = 203.55559
+offset_top = 655.55554
+offset_right = 325.5556
+offset_bottom = 678.55554
+text = "Highest note:90"
+
+[node name="HSlider2" type="HSlider" parent="menu/musicalsettings/channels" unique_id=1285262669]
+offset_left = 218.00005
+offset_top = 678.88885
+offset_right = 320.2223
+offset_bottom = 694.88885
+min_value = 1.0
+max_value = 128.0
+value = 100.0
+
+[node name="Label10" type="Label" parent="menu/musicalsettings/channels" unique_id=1068339710]
+offset_left = 66.88889
+offset_top = 654.44446
+offset_right = 188.88889
+offset_bottom = 677.44446
+text = "Highest note:90"
+
+[node name="HSlider" type="HSlider" parent="menu/musicalsettings/channels" unique_id=860739299]
+offset_left = 72.444435
+offset_top = 678.889
+offset_right = 174.66666
+offset_bottom = 694.889
+min_value = 1.0
+max_value = 128.0
+value = 100.0
+
+[node name="MidiPlayer" parent="." unique_id=8222357 instance=ExtResource("2_jesvm")]
+soundfont = "res://Aspirin-Stereo.sf2"
+
+[connection signal="pressed" from="menu/control/Randomize" to="." method="_on_randomize_pressed"]
+[connection signal="pressed" from="menu/control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="menu/control/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="value_changed" from="menu/control/HSlider" to="." method="_on_game_speed_value_changed"]
+[connection signal="pressed" from="menu/boardsettings/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="value_changed" from="menu/boardsettings/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="menu/musicalsettings/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="menu/musicalsettings/CheckBox2" to="." method="_on_check_box_2_toggled"]
+[connection signal="toggled" from="menu/musicalsettings/CheckBox3" to="." method="_on_check_box_3_toggled"]
+[connection signal="toggled" from="menu/musicalsettings/CheckBox8" to="." method="_on_check_box_8_toggled"]
+[connection signal="item_selected" from="menu/musicalsettings/channels/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="menu/musicalsettings/channels/OptionButton2" to="." method="_on_option_button_2_item_selected"]
+[connection signal="item_selected" from="menu/musicalsettings/channels/OptionButton3" to="." method="_on_option_button_3_item_selected"]
+[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider3" to="." method="_on_h_slider_3_value_changed"]
+[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider2" to="." method="_on_channel_2_value_changed"]
+[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider" to="." method="_on_channel_0_value_changed"]

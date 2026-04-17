@@ -26,6 +26,9 @@ var game_speed_sec=game_speed/60.0
 var slider1_value=90
 var slider2_value=90
 var slider3_value=90
+var slider4_value=0
+var slider5_value=0
+var slider6_value=0
 
 var no_x=1010
 var no_y=750
@@ -257,18 +260,20 @@ func create_notes():
 	pass
 	
 func play_music():
-	
+	var chan1_modif=slider1_value-slider6_value+1
+	var chan2_modif=slider2_value-slider5_value+1
+	var chan3_modif=slider3_value-slider4_value+1
 	create_notes()
 	
 	if $menu/musicalsettings/CheckBox8.button_pressed:
 		if $menu/musicalsettings/allivecells/CheckBox.button_pressed:
-			play_note(alive_cells_note%slider1_value,game_speed_sec,0)
+			play_note(alive_cells_note%chan1_modif+slider6_value,game_speed_sec,0)
 			print(00)
 		elif $menu/musicalsettings/allivecells/CheckBox1.button_pressed:
-			play_note(alive_cells_note%slider2_value,game_speed_sec,1)
+			play_note(alive_cells_note%chan2_modif+slider5_value,game_speed_sec,1)
 			print(01)
 		elif $menu/musicalsettings/allivecells/CheckBox2.button_pressed:
-			play_note(alive_cells_note%slider3_value,game_speed_sec,2)
+			play_note(alive_cells_note%chan3_modif+slider4_value,game_speed_sec,2)
 			print(02)
 		else:
 			play_note(alive_cells_note,game_speed_sec,9)
@@ -276,13 +281,13 @@ func play_music():
 	if $menu/musicalsettings/CheckBox.button_pressed:
 		
 		if $menu/musicalsettings/borncells/CheckBox.button_pressed:
-			play_note(cells_born_note%int(slider1_value),game_speed_sec,0)
+			play_note(cells_born_note%chan1_modif+slider6_value,game_speed_sec,0)
 			print(10)
 		elif $menu/musicalsettings/borncells/CheckBox2.button_pressed:
-			play_note(cells_born_note%slider2_value,game_speed_sec,1)
+			play_note(cells_born_note%chan2_modif+slider5_value,game_speed_sec,1)
 			print(11)
 		elif $menu/musicalsettings/borncells/CheckBox3.button_pressed:
-			play_note(cells_born_note%slider3_value,game_speed_sec,2)
+			play_note(cells_born_note%chan3_modif+slider4_value,game_speed_sec,2)
 			print(12)
 		else:
 			play_note(cells_born_note,game_speed_sec,9)
@@ -290,27 +295,27 @@ func play_music():
 	if $menu/musicalsettings/CheckBox2.button_pressed:
 		
 		if $menu/musicalsettings/Cellsdied/CheckBox.button_pressed:
-			play_note(cells_died_note%slider1_value,game_speed_sec,0)
+			play_note(cells_died_note%chan1_modif+slider6_value,game_speed_sec,0)
 			print(20)
 		elif $menu/musicalsettings/Cellsdied/CheckBox1.button_pressed:
-			play_note(cells_died_note%slider2_value,game_speed_sec,1)
+			play_note(cells_died_note%chan2_modif+slider5_value,game_speed_sec,1)
 			print(21)
 		elif $menu/musicalsettings/Cellsdied/CheckBox2.button_pressed:
-			play_note(cells_died_note%slider3_value,game_speed_sec,2)
+			play_note(cells_died_note%chan3_modif+slider4_value,game_speed_sec,2)
 			print(22)
 		else:
 			play_note(cells_died_note,game_speed_sec,9)
 			print(23)
 	if $menu/musicalsettings/CheckBox3.button_pressed:
 		if $menu/musicalsettings/deadcells/CheckBox.button_pressed:
-			play_note(dead_cells_note%slider1_value,game_speed_sec,0)
+			play_note(dead_cells_note%chan1_modif+slider6_value,game_speed_sec,0)
 			print(30)
 		elif $menu/musicalsettings/deadcells/CheckBox1.button_pressed:
-			play_note(dead_cells_note%slider2_value,game_speed_sec,1)
+			play_note(dead_cells_note%chan2_modif+slider5_value,game_speed_sec,1)
 			print(31)
 
 		elif $menu/musicalsettings/deadcells/CheckBox2.button_pressed:
-			play_note(dead_cells_note%slider3_value,game_speed_sec,2)
+			play_note(dead_cells_note%chan3_modif+slider4_value,game_speed_sec,2)
 			print(32)
 		else:
 			play_note(dead_cells_note,game_speed_sec,9)
@@ -397,18 +402,21 @@ func _on_option_button_3_item_selected(index: int) -> void:
 func _on_channel_0_value_changed(value: float) -> void:
 	slider1_value=int($menu/musicalsettings/channels/HSlider.value)
 	$menu/musicalsettings/channels/Label10.text="Highest note "+str(slider1_value)
+	$menu/musicalsettings/channels/HSlider6.max_value=slider1_value
 	pass # Replace with function body.
 
 
 func _on_channel_2_value_changed(value: float) -> void:
 	slider2_value=int($menu/musicalsettings/channels/HSlider2.value)
 	$menu/musicalsettings/channels/Label11.text="Highest note "+str(slider2_value)
+	$menu/musicalsettings/channels/HSlider5.max_value=slider2_value
 	pass # Replace with function body.
 
 
 func _on_h_slider_3_value_changed(value: float) -> void:
 	slider3_value=int($menu/musicalsettings/channels/HSlider3.value)
 	$menu/musicalsettings/channels/Label12.text="Highest note "+str(slider3_value)
+	$menu/musicalsettings/channels/HSlider4x.max_value=slider3_value
 	pass # Replace with function body.
 
 
@@ -426,4 +434,25 @@ func _on_menu_pressed() -> void:
 		no_x=1010
 		no_y=750
 		
+	pass # Replace with function body.
+
+
+func _on_h_slider_4_value_changed(value: float) -> void:
+	slider4_value=int($menu/musicalsettings/channels/HSlider4.value)
+	$menu/musicalsettings/channels/Label13.text="Lowest note "+str(slider4_value)
+	$menu/musicalsettings/channels/HSlider3.min_value=slider4_value
+	pass # Replace with function body.
+
+
+func _on_h_slider_5_value_changed(value: float) -> void:
+	slider5_value=int($menu/musicalsettings/channels/HSlider5.value)
+	$menu/musicalsettings/channels/Label14.text="Lowest note "+str(slider5_value)
+	$menu/musicalsettings/channels/HSlider2.min_value=slider5_value
+	pass # Replace with function body.
+
+
+func _on_h_slider_6_value_changed(value: float) -> void:
+	slider6_value=int($menu/musicalsettings/channels/HSlider6.value)
+	$menu/musicalsettings/channels/Label15.text="Lowest note "+str(slider6_value)
+	$menu/musicalsettings/channels/HSlider.min_value=slider6_value
 	pass # Replace with function body.

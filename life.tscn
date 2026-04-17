@@ -17,10 +17,10 @@ scale = Vector2(0.9, 0.9)
 
 [node name="ColorRect" type="ColorRect" parent="menu" unique_id=614760966]
 z_index = 1
-offset_left = -26.666748
-offset_top = 10.0
-offset_right = 484.44424
-offset_bottom = 730.0
+offset_left = -26.66668
+offset_top = 5.5555463
+offset_right = 484.4443
+offset_bottom = 755.55554
 color = Color(0.29, 0.29, 0.29, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -593,9 +593,8 @@ offset_left = 357.99997
 offset_top = 678.88885
 offset_right = 460.2222
 offset_bottom = 694.88885
-min_value = 1.0
-max_value = 128.0
-value = 100.0
+max_value = 127.0
+value = 90.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label11" type="Label" parent="menu/musicalsettings/channels" unique_id=1954813441]
@@ -613,9 +612,8 @@ offset_left = 218.00005
 offset_top = 678.88885
 offset_right = 320.2223
 offset_bottom = 694.88885
-min_value = 1.0
-max_value = 128.0
-value = 100.0
+max_value = 127.0
+value = 90.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label10" type="Label" parent="menu/musicalsettings/channels" unique_id=1068339710]
@@ -633,9 +631,63 @@ offset_left = 72.444435
 offset_top = 678.889
 offset_right = 174.66666
 offset_bottom = 694.889
-min_value = 1.0
-max_value = 128.0
-value = 100.0
+max_value = 127.0
+value = 90.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label13" type="Label" parent="menu/musicalsettings/channels" unique_id=2123861207]
+z_index = 1
+offset_left = 348.88892
+offset_top = 701.11115
+offset_right = 470.88892
+offset_bottom = 724.11115
+text = "Lowest note:0
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="HSlider4" type="HSlider" parent="menu/musicalsettings/channels" unique_id=612569415]
+z_index = 1
+offset_left = 358.88892
+offset_top = 725.55566
+offset_right = 461.11115
+offset_bottom = 741.55566
+max_value = 90.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label14" type="Label" parent="menu/musicalsettings/channels" unique_id=644464870]
+z_index = 1
+offset_left = 204.44453
+offset_top = 702.22235
+offset_right = 326.44455
+offset_bottom = 725.22235
+text = "Lowest note:0"
+metadata/_edit_use_anchors_ = true
+
+[node name="HSlider5" type="HSlider" parent="menu/musicalsettings/channels" unique_id=1125978602]
+z_index = 1
+offset_left = 218.88899
+offset_top = 725.55566
+offset_right = 321.11124
+offset_bottom = 741.55566
+max_value = 90.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label15" type="Label" parent="menu/musicalsettings/channels" unique_id=1165662874]
+z_index = 1
+offset_left = 67.77784
+offset_top = 701.11127
+offset_right = 189.77783
+offset_bottom = 724.11127
+text = "Lowest note:0"
+metadata/_edit_use_anchors_ = true
+
+[node name="HSlider6" type="HSlider" parent="menu/musicalsettings/channels" unique_id=1631992693]
+z_index = 1
+offset_left = 73.33338
+offset_top = 725.5558
+offset_right = 175.5556
+offset_bottom = 741.5558
+max_value = 90.0
 metadata/_edit_use_anchors_ = true
 
 [node name="MidiPlayer" parent="." unique_id=8222357 instance=ExtResource("2_jesvm")]
@@ -672,5 +724,8 @@ text = "Start"
 [connection signal="value_changed" from="menu/musicalsettings/channels/HSlider3" to="." method="_on_h_slider_3_value_changed"]
 [connection signal="value_changed" from="menu/musicalsettings/channels/HSlider2" to="." method="_on_channel_2_value_changed"]
 [connection signal="value_changed" from="menu/musicalsettings/channels/HSlider" to="." method="_on_channel_0_value_changed"]
+[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider4" to="." method="_on_h_slider_4_value_changed"]
+[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider5" to="." method="_on_h_slider_5_value_changed"]
+[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider6" to="." method="_on_h_slider_6_value_changed"]
 [connection signal="pressed" from="Button2" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_pressed"]

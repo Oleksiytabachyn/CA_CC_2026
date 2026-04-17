@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="life"
+config/name="CA_2026"
 run/main_scene="uid://rb0qmaups3u8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=60

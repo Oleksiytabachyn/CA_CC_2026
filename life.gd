@@ -83,7 +83,8 @@ func load_save():
 		var save_data=data.duplicate(true)
 		var save_num=$menu/control/OptionButton2.get_selected_id()
 		print(save_data["charecteristics_"+str(save_num+1)][0])
-		$menu/boardsettings/HSlider.value=save_data["charecteristics_"+str(save_num+1)][0]
+		print(save_data["charecteristics_"+str(save_num+1)][0])
+		$menu/boardsettings/HSlider.value=47
 		board=save_data["example_"+str(save_num+1)]
 
 func initialize_save():
@@ -98,7 +99,7 @@ func initialize_save():
 			$menu/control/OptionButton.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
 			$menu/control/OptionButton2.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
 			save_dictionary["charecteristics_"+str(i+1)][1]=save_data["charecteristics_"+str(i+1)][1]
-			save_dictionary["charecteristics_"+str(i+1)][0]=save_data["charecteristics_"+str(i+1)][1]
+			save_dictionary["charecteristics_"+str(i+1)][0]=save_data["charecteristics_"+str(i+1)][0]
 			save_dictionary["example_"+str(i+1)]=save_data["example_"+str(i+1)].duplicate(true)
 	else:
 		for i in range(10):

@@ -26,9 +26,9 @@ var game_speed_sec=game_speed/60.0
 var slider1_value=90
 var slider2_value=90
 var slider3_value=90
-var slider4_value=0
+var slider_6_value=0
 var slider5_value=0
-var slider6_value=0
+var slider_4_value=0
 
 var no_x=1010
 var no_y=820
@@ -38,42 +38,53 @@ var save_dictionary: Dictionary={
 	"example_1":[],
 	"charecteristics_1":[50,"1-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_1": [true,true,true,true,0,1,2,3], 
+	"channels_1":[0,3,5,0,90,0,90,0,90],
 	
 	"example_2":[],
 	"charecteristics_2":[50,"2-empty",false,Color.BLACK,Color.WHITE,10],
-	"music_2": [true,true,true,true,0,1,2,3], 
+	"music_2": [true,true,true,true,0,1,2,3],
+	"channels_2":[0,3,5,0,90,0,90,0,90], 
 	
 	"example_3":[],
 	"charecteristics_3":[50,"3-empty",false,Color.BLACK,Color.WHITE,10],
-	"music_3": [true,true,true,true,0,1,2,3], 
+	"music_3": [true,true,true,true,0,1,2,3],
+	"channels_3":[0,3,5,0,90,0,90,0,90], 
 	
 	"example_4":[],
 	"charecteristics_4":[50,"4-empty",false,Color.BLACK,Color.WHITE,10],
-	"music_4": [true,true,true,true,0,1,2,3], 
+	"music_4": [true,true,true,true,0,1,2,3],
+	"channels_4":[0,3,5,0,90,0,90,0,90], 
+	
 	
 	"example_5":[],
 	"charecteristics_5":[50,"5-empty",false,Color.BLACK,Color.WHITE,10],
-	"music_5": [true,true,true,true,0,1,2,3], 
+	"music_5": [true,true,true,true,0,1,2,3],
+	"channels_5":[0,3,5,0,90,0,90,0,90], 
 	
 	"example_6":[],
 	"charecteristics_6":[50,"6-empty",false,Color.BLACK,Color.WHITE,10],
-	"music_6": [true,true,true,true,0,1,2,3], 
+	"music_6": [true,true,true,true,0,1,2,3],
+	"channels_6":[0,3,5,0,90,0,90,0,90], 
 	
 	"example_7":[],
 	"charecteristics_7":[50,"7-empty",false,Color.BLACK,Color.WHITE,10],
-	"music_7": [true,true,true,true,0,1,2,3], 
+	"music_7": [true,true,true,true,0,1,2,3],
+	"channels_7":[0,3,5,0,90,0,90,0,90], 
 	
 	"example_8":[],
 	"charecteristics_8":[50,"8-empty",false,Color.BLACK,Color.WHITE,10],
-	"music_8": [true,true,true,true,0,1,2,3], 
+	"music_8": [true,true,true,true,0,1,2,3],
+	"channels_8":[0,3,5,0,90,0,90,0,90], 
 	
 	"example_9":[],
 	"charecteristics_9":[50,"9-empty",false,Color.BLACK,Color.WHITE,10],
-	"music_9": [true,true,true,true,0,1,2,3], 
+	"music_9": [true,true,true,true,0,1,2,3],
+	"channels_9":[0,3,5,0,90,0,90,0,90], 
 	
 	"example_10":[],
 	"charecteristics_10":[50,"10-empty",false,Color.BLACK,Color.WHITE,10],
-	"music_10": [true,true,true,true,0,1,2,3], 
+	"music_10": [true,true,true,true,0,1,2,3],
+	"channels_10":[0,3,5,0,90,0,90,0,90] 
 }
 
 
@@ -113,9 +124,13 @@ func load_save():
 		get_node("menu/musicalsettings/cellsdied/CheckBox"+str(save_data["music_"+str(save_num+1)][5]+1)).button_pressed=true
 		get_node("menu/musicalsettings/deadcells/CheckBox"+str(save_data["music_"+str(save_num+1)][6]+1)).button_pressed=true
 		get_node("menu/musicalsettings/allivecells/CheckBox"+str(save_data["music_"+str(save_num+1)][7]+1)).button_pressed=true
-
-				
-
+	
+		for i in range(3):
+			get_node("menu/musicalsettings/channels/OptionButton"+str(i+1)).select(save_data["channels_"+str(save_num+1)][i])
+		
+		for i in range(6):
+			get_node("menu/musicalsettings/channels/HSlider"+str(i+1)).value=save_data["channels_"+str(save_num+1)][i+3]
+		
 func initialize_save():
 	if FileAccess.file_exists(save_location):
 		var file=FileAccess.open(save_location,FileAccess.READ)
@@ -131,6 +146,7 @@ func initialize_save():
 			save_dictionary["charecteristics_"+str(i+1)]=save_data["charecteristics_"+str(i+1)].duplicate(true)
 			save_dictionary["music_"+str(i+1)]=save_data["music_"+str(i+1)].duplicate(true)
 			save_dictionary["example_"+str(i+1)]=save_data["example_"+str(i+1)].duplicate(true)
+			save_dictionary["channels_"+str(i+1)]=save_data["channels_"+str(i+1)].duplicate(true)
 	else:
 		for i in range(10):
 			save_dictionary["example_"+str(i+1)]=board.duplicate(true)
@@ -139,6 +155,7 @@ func initialize_save():
 			$menu/control/OptionButton.set_item_text(i,str(i+1)+"-"+text)
 			$menu/control/OptionButton2.set_item_text(i,str(i+1)+"-"+text)
 			save_to_file()
+			
 		
 		
 
@@ -381,20 +398,20 @@ func create_notes():
 	pass
 	
 func play_music():
-	var chan1_modif=slider1_value-slider6_value+1
+	var chan1_modif=slider1_value-slider_4_value+1
 	var chan2_modif=slider2_value-slider5_value+1
-	var chan3_modif=slider3_value-slider4_value+1
+	var chan3_modif=slider3_value-slider_6_value+1
 	create_notes()
 	
 	if $menu/musicalsettings/CheckBox8.button_pressed:
 		if $menu/musicalsettings/allivecells/CheckBox1.button_pressed:
-			play_note(alive_cells_note%chan1_modif+slider6_value,game_speed_sec,0)
+			play_note(alive_cells_note%chan1_modif+slider_4_value,game_speed_sec,0)
 			
 		elif $menu/musicalsettings/allivecells/CheckBox2.button_pressed:
 			play_note(alive_cells_note%chan2_modif+slider5_value,game_speed_sec,1)
 			
 		elif $menu/musicalsettings/allivecells/CheckBox3.button_pressed:
-			play_note(alive_cells_note%chan3_modif+slider4_value,game_speed_sec,2)
+			play_note(alive_cells_note%chan3_modif+slider_6_value,game_speed_sec,2)
 			
 		else:
 			play_note(alive_cells_note,game_speed_sec,9)
@@ -402,13 +419,13 @@ func play_music():
 	if $menu/musicalsettings/CheckBox.button_pressed:
 		
 		if $menu/musicalsettings/borncells/CheckBox1.button_pressed:
-			play_note(cells_born_note%chan1_modif+slider6_value,game_speed_sec,0)
+			play_note(cells_born_note%chan1_modif+slider_4_value,game_speed_sec,0)
 			
 		elif $menu/musicalsettings/borncells/CheckBox2.button_pressed:
 			play_note(cells_born_note%chan2_modif+slider5_value,game_speed_sec,1)
 			
 		elif $menu/musicalsettings/borncells/CheckBox3.button_pressed:
-			play_note(cells_born_note%chan3_modif+slider4_value,game_speed_sec,2)
+			play_note(cells_born_note%chan3_modif+slider_6_value,game_speed_sec,2)
 			
 		else:
 			play_note(cells_born_note,game_speed_sec,9)
@@ -416,27 +433,27 @@ func play_music():
 	if $menu/musicalsettings/CheckBox2.button_pressed:
 		
 		if $menu/musicalsettings/cellsdied/CheckBox1.button_pressed:
-			play_note(cells_died_note%chan1_modif+slider6_value,game_speed_sec,0)
+			play_note(cells_died_note%chan1_modif+slider_4_value,game_speed_sec,0)
 			
 		elif $menu/musicalsettings/cellsdied/CheckBox2.button_pressed:
 			play_note(cells_died_note%chan2_modif+slider5_value,game_speed_sec,1)
 			
 		elif $menu/musicalsettings/cellsdied/CheckBox3.button_pressed:
-			play_note(cells_died_note%chan3_modif+slider4_value,game_speed_sec,2)
+			play_note(cells_died_note%chan3_modif+slider_6_value,game_speed_sec,2)
 			
 		else:
 			play_note(cells_died_note,game_speed_sec,9)
 			
 	if $menu/musicalsettings/CheckBox3.button_pressed:
 		if $menu/musicalsettings/deadcells/CheckBox1.button_pressed:
-			play_note(dead_cells_note%chan1_modif+slider6_value,game_speed_sec,0)
+			play_note(dead_cells_note%chan1_modif+slider_4_value,game_speed_sec,0)
 			
 		elif $menu/musicalsettings/deadcells/CheckBox2.button_pressed:
 			play_note(dead_cells_note%chan2_modif+slider5_value,game_speed_sec,1)
 			
 
 		elif $menu/musicalsettings/deadcells/CheckBox3.button_pressed:
-			play_note(dead_cells_note%chan3_modif+slider4_value,game_speed_sec,2)
+			play_note(dead_cells_note%chan3_modif+slider_6_value,game_speed_sec,2)
 			
 		else:
 			play_note(dead_cells_note,game_speed_sec,9)
@@ -522,9 +539,9 @@ func _on_option_button_3_item_selected(index: int) -> void:
 
 
 func _on_channel_0_value_changed(value: float) -> void:
-	slider1_value=int($menu/musicalsettings/channels/HSlider.value)
+	slider1_value=int($menu/musicalsettings/channels/HSlider1.value)
 	$menu/musicalsettings/channels/Label10.text="Highest note "+str(slider1_value)
-	$menu/musicalsettings/channels/HSlider6.max_value=slider1_value
+	$menu/musicalsettings/channels/HSlider4.max_value=slider1_value
 	pass # Replace with function body.
 
 
@@ -538,7 +555,7 @@ func _on_channel_2_value_changed(value: float) -> void:
 func _on_h_slider_3_value_changed(value: float) -> void:
 	slider3_value=int($menu/musicalsettings/channels/HSlider3.value)
 	$menu/musicalsettings/channels/Label12.text="Highest note "+str(slider3_value)
-	$menu/musicalsettings/channels/HSlider4.max_value=slider3_value
+	$menu/musicalsettings/channels/HSlider6.max_value=slider3_value
 	pass # Replace with function body.
 
 
@@ -560,9 +577,9 @@ func _on_menu_pressed() -> void:
 
 
 func _on_h_slider_4_value_changed(value: float) -> void:
-	slider4_value=int($menu/musicalsettings/channels/HSlider4.value)
-	$menu/musicalsettings/channels/Label13.text="Lowest note "+str(slider4_value)
-	$menu/musicalsettings/channels/HSlider3.min_value=slider4_value
+	slider_6_value=int($menu/musicalsettings/channels/HSlider6.value)
+	$menu/musicalsettings/channels/Label13.text="Lowest note "+str(slider_6_value)
+	$menu/musicalsettings/channels/HSlider3.min_value=slider_6_value
 	pass # Replace with function body.
 
 
@@ -574,9 +591,9 @@ func _on_h_slider_5_value_changed(value: float) -> void:
 
 
 func _on_h_slider_6_value_changed(value: float) -> void:
-	slider6_value=int($menu/musicalsettings/channels/HSlider6.value)
-	$menu/musicalsettings/channels/Label15.text="Lowest note "+str(slider6_value)
-	$menu/musicalsettings/channels/HSlider.min_value=slider6_value
+	slider_4_value=int($menu/musicalsettings/channels/HSlider4.value)
+	$menu/musicalsettings/channels/Label15.text="Lowest note "+str(slider_4_value)
+	$menu/musicalsettings/channels/HSlider1.min_value=slider_4_value
 	pass # Replace with function body.
 	
 
@@ -626,8 +643,16 @@ func _on_save_pressed() -> void:
 		var check:CheckBox=get_node("menu/musicalsettings/allivecells/CheckBox"+str(i+1))
 		if check.button_pressed:
 			save_dictionary["music_"+str(layout_num+1)][7]=i
+			
+	for i in range(0,3):
+		var instruments:OptionButton=get_node("menu/musicalsettings/channels/OptionButton"+str(i+1))
+		save_dictionary["channels_"+str(layout_num+1)][i]=instruments.get_selected_id()
 	
-	print(save_dictionary["music_"+str(layout_num+1)])
+	for i in range(3,9):
+		var slider:HSlider=get_node("menu/musicalsettings/channels/HSlider"+str(i-2))
+		save_dictionary["channels_"+str(layout_num+1)][i]=slider.value
+		
+	print(save_dictionary["channels_"+str(layout_num+1)])
 	save_to_file()
 	
 	pass # Replace with function body.

@@ -528,7 +528,7 @@ offset_bottom = 692.7778
 text = "Channels:"
 metadata/_edit_use_anchors_ = true
 
-[node name="OptionButton" type="OptionButton" parent="menu/musicalsettings/channels" unique_id=21029045]
+[node name="OptionButton1" type="OptionButton" parent="menu/musicalsettings/channels" unique_id=21029045]
 z_index = 1
 offset_left = 74.66668
 offset_top = 691.7778
@@ -728,7 +728,7 @@ offset_bottom = 744.11115
 text = "Highest note:90"
 metadata/_edit_use_anchors_ = true
 
-[node name="HSlider" type="HSlider" parent="menu/musicalsettings/channels" unique_id=860739299]
+[node name="HSlider1" type="HSlider" parent="menu/musicalsettings/channels" unique_id=860739299]
 z_index = 1
 offset_left = 77.99999
 offset_top = 745.55566
@@ -748,7 +748,7 @@ text = "Lowest note:0
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="HSlider4" type="HSlider" parent="menu/musicalsettings/channels" unique_id=612569415]
+[node name="HSlider6" type="HSlider" parent="menu/musicalsettings/channels" unique_id=612569415]
 z_index = 1
 offset_left = 364.44446
 offset_top = 792.22235
@@ -784,7 +784,7 @@ offset_bottom = 790.77795
 text = "Lowest note:0"
 metadata/_edit_use_anchors_ = true
 
-[node name="HSlider6" type="HSlider" parent="menu/musicalsettings/channels" unique_id=1631992693]
+[node name="HSlider4" type="HSlider" parent="menu/musicalsettings/channels" unique_id=1631992693]
 z_index = 1
 offset_left = 78.88894
 offset_top = 792.2225
@@ -823,14 +823,14 @@ text = "Start"
 [connection signal="toggled" from="menu/musicalsettings/CheckBox2" to="." method="_on_check_box_2_toggled"]
 [connection signal="toggled" from="menu/musicalsettings/CheckBox3" to="." method="_on_check_box_3_toggled"]
 [connection signal="toggled" from="menu/musicalsettings/CheckBox8" to="." method="_on_check_box_8_toggled"]
-[connection signal="item_selected" from="menu/musicalsettings/channels/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="menu/musicalsettings/channels/OptionButton1" to="." method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="menu/musicalsettings/channels/OptionButton2" to="." method="_on_option_button_2_item_selected"]
 [connection signal="item_selected" from="menu/musicalsettings/channels/OptionButton3" to="." method="_on_option_button_3_item_selected"]
 [connection signal="value_changed" from="menu/musicalsettings/channels/HSlider3" to="." method="_on_h_slider_3_value_changed"]
 [connection signal="value_changed" from="menu/musicalsettings/channels/HSlider2" to="." method="_on_channel_2_value_changed"]
-[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider" to="." method="_on_channel_0_value_changed"]
-[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider4" to="." method="_on_h_slider_4_value_changed"]
+[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider1" to="." method="_on_channel_0_value_changed"]
+[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider6" to="." method="_on_h_slider_4_value_changed"]
 [connection signal="value_changed" from="menu/musicalsettings/channels/HSlider5" to="." method="_on_h_slider_5_value_changed"]
-[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider6" to="." method="_on_h_slider_6_value_changed"]
+[connection signal="value_changed" from="menu/musicalsettings/channels/HSlider4" to="." method="_on_h_slider_6_value_changed"]
 [connection signal="pressed" from="Button2" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_pressed"]

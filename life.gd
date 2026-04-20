@@ -36,34 +36,44 @@ var no_y=820
 var save_location="user://SaveFile.json"
 var save_dictionary: Dictionary={
 	"example_1":[],
-	"charecteristics_1":[50,"1-empty"],
+	"charecteristics_1":[50,"1-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_1": [true,true,true,true,0,1,2,3], 
 	
 	"example_2":[],
-	"charecteristics_2":[50,"2-empty"],
+	"charecteristics_2":[50,"2-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_2": [true,true,true,true,0,1,2,3], 
 	
 	"example_3":[],
-	"charecteristics_3":[50,"3-empty"],
+	"charecteristics_3":[50,"3-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_3": [true,true,true,true,0,1,2,3], 
 	
 	"example_4":[],
-	"charecteristics_4":[50,"4-empty"],
+	"charecteristics_4":[50,"4-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_4": [true,true,true,true,0,1,2,3], 
 	
 	"example_5":[],
-	"charecteristics_5":[50,"5-empty"],
+	"charecteristics_5":[50,"5-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_5": [true,true,true,true,0,1,2,3], 
 	
 	"example_6":[],
-	"charecteristics_6":[50,"6-empty"],
+	"charecteristics_6":[50,"6-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_6": [true,true,true,true,0,1,2,3], 
 	
 	"example_7":[],
-	"charecteristics_7":[50,"7-empty"],
+	"charecteristics_7":[50,"7-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_7": [true,true,true,true,0,1,2,3], 
 	
 	"example_8":[],
-	"charecteristics_8":[50,"8-empty"],
+	"charecteristics_8":[50,"8-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_8": [true,true,true,true,0,1,2,3], 
 	
 	"example_9":[],
-	"charecteristics_9":[50,"9-empty"],
+	"charecteristics_9":[50,"9-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_9": [true,true,true,true,0,1,2,3], 
 	
 	"example_10":[],
-	"charecteristics_10":[50,"10-empty"],
+	"charecteristics_10":[50,"10-empty",false,Color.BLACK,Color.WHITE,10],
+	"music_10": [true,true,true,true,0,1,2,3], 
 }
 
 
@@ -83,9 +93,16 @@ func load_save():
 		var save_data=data.duplicate(true)
 		var save_num=$menu/control/OptionButton2.get_selected_id()
 		print(save_data["charecteristics_"+str(save_num+1)][0])
-		print(save_data["charecteristics_"+str(save_num+1)][0])
-		$menu/boardsettings/HSlider.value=47
+		print(save_data["charecteristics_"+str(save_num+1)][1])
+		$menu/boardsettings/HSlider.value=save_data["charecteristics_"+str(save_num+1)][0]
 		board=save_data["example_"+str(save_num+1)]
+		rainbow_on=save_data["charecteristics_"+str(save_num+1)][2]
+		if not rainbow_on:
+			$menu/boardsettings/ColorPickerButton.color=save_data["charecteristics_"+str(save_num+1)][3]
+		$menu/boardsettings/ColorPickerButton2.color=save_data["charecteristics_"+str(save_num+1)][4]
+		$menu/control/HSlider.value=save_data["charecteristics_"+str(save_num+1)][5]
+		
+		
 
 func initialize_save():
 	if FileAccess.file_exists(save_location):
@@ -98,17 +115,17 @@ func initialize_save():
 		for i in range(10):
 			$menu/control/OptionButton.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
 			$menu/control/OptionButton2.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
-			save_dictionary["charecteristics_"+str(i+1)][1]=save_data["charecteristics_"+str(i+1)][1]
-			save_dictionary["charecteristics_"+str(i+1)][0]=save_data["charecteristics_"+str(i+1)][0]
+			for j in range(len(save_dictionary["charecteristics_"+str(i+1)])):
+				save_dictionary["charecteristics_"+str(i+1)][j]=save_data["charecteristics_"+str(i+1)][j]
+			
 			save_dictionary["example_"+str(i+1)]=save_data["example_"+str(i+1)].duplicate(true)
 	else:
 		for i in range(10):
-			save_dictionary["example_"+str(i+1)]=board
-			save_dictionary["charecteristics_"+str(i+1)][0]=size
+			save_dictionary["example_"+str(i+1)]=board.duplicate(true)
+			
 			var text="empty"
 			$menu/control/OptionButton.set_item_text(i,str(i+1)+"-"+text)
 			$menu/control/OptionButton2.set_item_text(i,str(i+1)+"-"+text)
-			save_dictionary["charecteristics_"+str(i+1)][1]=str(i+1)+"-"+text
 			save_to_file()
 		
 		
@@ -566,6 +583,10 @@ func _on_save_pressed() -> void:
 	$menu/control/OptionButton.set_item_text(layout_num,str(layout_num+1)+"-"+text)
 	$menu/control/OptionButton2.set_item_text(layout_num,str(layout_num+1)+"-"+text)
 	save_dictionary["charecteristics_"+str(layout_num+1)][1]=str(layout_num+1)+"-"+text
+	save_dictionary["charecteristics_"+str(layout_num+1)][2]=rainbow_on
+	save_dictionary["charecteristics_"+str(layout_num+1)][3]=$menu/boardsettings/ColorPickerButton.color
+	save_dictionary["charecteristics_"+str(layout_num+1)][4]=$menu/boardsettings/ColorPickerButton2.color
+	save_dictionary["charecteristics_"+str(layout_num+1)][5]=$menu/control/HSlider.value
 	save_to_file()
 	
 	pass # Replace with function body.

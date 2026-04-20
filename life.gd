@@ -93,16 +93,28 @@ func load_save():
 		var save_data=data.duplicate(true)
 		var save_num=$menu/control/OptionButton2.get_selected_id()
 		print(save_data["charecteristics_"+str(save_num+1)][0])
-		print(save_data["charecteristics_"+str(save_num+1)][1])
+		print(save_data["music_"+str(save_num+1)])
+		
 		$menu/boardsettings/HSlider.value=save_data["charecteristics_"+str(save_num+1)][0]
 		board=save_data["example_"+str(save_num+1)]
+		
 		rainbow_on=save_data["charecteristics_"+str(save_num+1)][2]
 		if not rainbow_on:
 			$menu/boardsettings/ColorPickerButton.color=save_data["charecteristics_"+str(save_num+1)][3]
 		$menu/boardsettings/ColorPickerButton2.color=save_data["charecteristics_"+str(save_num+1)][4]
 		$menu/control/HSlider.value=save_data["charecteristics_"+str(save_num+1)][5]
 		
+		$menu/musicalsettings/CheckBox.button_pressed=save_data["music_"+str(save_num+1)][0]
+		$menu/musicalsettings/CheckBox2.button_pressed=save_data["music_"+str(save_num+1)][1]
+		$menu/musicalsettings/CheckBox3.button_pressed=save_data["music_"+str(save_num+1)][2]
+		$menu/musicalsettings/CheckBox8.button_pressed=save_data["music_"+str(save_num+1)][3]
 		
+		get_node("menu/musicalsettings/borncells/CheckBox"+str(save_data["music_"+str(save_num+1)][4]+1)).button_pressed=true
+		get_node("menu/musicalsettings/cellsdied/CheckBox"+str(save_data["music_"+str(save_num+1)][5]+1)).button_pressed=true
+		get_node("menu/musicalsettings/deadcells/CheckBox"+str(save_data["music_"+str(save_num+1)][6]+1)).button_pressed=true
+		get_node("menu/musicalsettings/allivecells/CheckBox"+str(save_data["music_"+str(save_num+1)][7]+1)).button_pressed=true
+
+				
 
 func initialize_save():
 	if FileAccess.file_exists(save_location):
@@ -115,9 +127,9 @@ func initialize_save():
 		for i in range(10):
 			$menu/control/OptionButton.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
 			$menu/control/OptionButton2.set_item_text(i,save_data["charecteristics_"+str(i+1)][1])
-			for j in range(len(save_dictionary["charecteristics_"+str(i+1)])):
-				save_dictionary["charecteristics_"+str(i+1)][j]=save_data["charecteristics_"+str(i+1)][j]
 			
+			save_dictionary["charecteristics_"+str(i+1)]=save_data["charecteristics_"+str(i+1)].duplicate(true)
+			save_dictionary["music_"+str(i+1)]=save_data["music_"+str(i+1)].duplicate(true)
 			save_dictionary["example_"+str(i+1)]=save_data["example_"+str(i+1)].duplicate(true)
 	else:
 		for i in range(10):
@@ -365,7 +377,7 @@ func create_notes():
 	alive_cells_note=alive_cells%61 if $menu/musicalsettings/allivecells/CheckBox9.button_pressed else alive_cells%128
 	dead_cells_note=dead_cells%61 if $menu/musicalsettings/deadcells/CheckBox9.button_pressed else dead_cells%128
 	cells_born_note=cells_born%61 if $menu/musicalsettings/borncells/CheckBox4.button_pressed else cells_born%128
-	cells_died_note=cells_died%61 if $menu/musicalsettings/Cellsdied/CheckBox9.button_pressed else cells_died%128
+	cells_died_note=cells_died%61 if $menu/musicalsettings/cellsdied/CheckBox9.button_pressed else cells_died%128
 	pass
 	
 func play_music():
@@ -375,13 +387,13 @@ func play_music():
 	create_notes()
 	
 	if $menu/musicalsettings/CheckBox8.button_pressed:
-		if $menu/musicalsettings/allivecells/CheckBox.button_pressed:
+		if $menu/musicalsettings/allivecells/CheckBox1.button_pressed:
 			play_note(alive_cells_note%chan1_modif+slider6_value,game_speed_sec,0)
 			
-		elif $menu/musicalsettings/allivecells/CheckBox1.button_pressed:
+		elif $menu/musicalsettings/allivecells/CheckBox2.button_pressed:
 			play_note(alive_cells_note%chan2_modif+slider5_value,game_speed_sec,1)
 			
-		elif $menu/musicalsettings/allivecells/CheckBox2.button_pressed:
+		elif $menu/musicalsettings/allivecells/CheckBox3.button_pressed:
 			play_note(alive_cells_note%chan3_modif+slider4_value,game_speed_sec,2)
 			
 		else:
@@ -389,7 +401,7 @@ func play_music():
 			
 	if $menu/musicalsettings/CheckBox.button_pressed:
 		
-		if $menu/musicalsettings/borncells/CheckBox.button_pressed:
+		if $menu/musicalsettings/borncells/CheckBox1.button_pressed:
 			play_note(cells_born_note%chan1_modif+slider6_value,game_speed_sec,0)
 			
 		elif $menu/musicalsettings/borncells/CheckBox2.button_pressed:
@@ -403,27 +415,27 @@ func play_music():
 			
 	if $menu/musicalsettings/CheckBox2.button_pressed:
 		
-		if $menu/musicalsettings/Cellsdied/CheckBox.button_pressed:
+		if $menu/musicalsettings/cellsdied/CheckBox1.button_pressed:
 			play_note(cells_died_note%chan1_modif+slider6_value,game_speed_sec,0)
 			
-		elif $menu/musicalsettings/Cellsdied/CheckBox1.button_pressed:
+		elif $menu/musicalsettings/cellsdied/CheckBox2.button_pressed:
 			play_note(cells_died_note%chan2_modif+slider5_value,game_speed_sec,1)
 			
-		elif $menu/musicalsettings/Cellsdied/CheckBox2.button_pressed:
+		elif $menu/musicalsettings/cellsdied/CheckBox3.button_pressed:
 			play_note(cells_died_note%chan3_modif+slider4_value,game_speed_sec,2)
 			
 		else:
 			play_note(cells_died_note,game_speed_sec,9)
 			
 	if $menu/musicalsettings/CheckBox3.button_pressed:
-		if $menu/musicalsettings/deadcells/CheckBox.button_pressed:
+		if $menu/musicalsettings/deadcells/CheckBox1.button_pressed:
 			play_note(dead_cells_note%chan1_modif+slider6_value,game_speed_sec,0)
 			
-		elif $menu/musicalsettings/deadcells/CheckBox1.button_pressed:
+		elif $menu/musicalsettings/deadcells/CheckBox2.button_pressed:
 			play_note(dead_cells_note%chan2_modif+slider5_value,game_speed_sec,1)
 			
 
-		elif $menu/musicalsettings/deadcells/CheckBox2.button_pressed:
+		elif $menu/musicalsettings/deadcells/CheckBox3.button_pressed:
 			play_note(dead_cells_note%chan3_modif+slider4_value,game_speed_sec,2)
 			
 		else:
@@ -474,7 +486,7 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 
 
 func _on_check_box_2_toggled(toggled_on: bool) -> void:
-	$menu/musicalsettings/Cellsdied.visible=toggled_on
+	$menu/musicalsettings/cellsdied.visible=toggled_on
 	pass # Replace with function body.
 
 
@@ -587,6 +599,35 @@ func _on_save_pressed() -> void:
 	save_dictionary["charecteristics_"+str(layout_num+1)][3]=$menu/boardsettings/ColorPickerButton.color
 	save_dictionary["charecteristics_"+str(layout_num+1)][4]=$menu/boardsettings/ColorPickerButton2.color
 	save_dictionary["charecteristics_"+str(layout_num+1)][5]=$menu/control/HSlider.value
+	
+	save_dictionary["music_"+str(layout_num+1)][0]=$menu/musicalsettings/CheckBox.button_pressed
+	save_dictionary["music_"+str(layout_num+1)][1]=$menu/musicalsettings/CheckBox2.button_pressed
+	save_dictionary["music_"+str(layout_num+1)][2]=$menu/musicalsettings/CheckBox3.button_pressed
+	save_dictionary["music_"+str(layout_num+1)][3]=$menu/musicalsettings/CheckBox8.button_pressed
+	
+	
+	for i in range(4):
+		var check:CheckBox=get_node("menu/musicalsettings/borncells/CheckBox"+str(i+1))
+		if check.button_pressed:
+			save_dictionary["music_"+str(layout_num+1)][4]=i
+	
+	for i in range(4):
+		
+		var check:CheckBox=get_node("menu/musicalsettings/cellsdied/CheckBox"+str(1+i))
+		if check.button_pressed:
+			save_dictionary["music_"+str(layout_num+1)][5]=i
+	
+	for i in range(4):
+		var check:CheckBox=get_node("menu/musicalsettings/deadcells/CheckBox"+str(i+1))
+		if check.button_pressed:
+			save_dictionary["music_"+str(layout_num+1)][6]=i
+		
+	for i in range(4):
+		var check:CheckBox=get_node("menu/musicalsettings/allivecells/CheckBox"+str(i+1))
+		if check.button_pressed:
+			save_dictionary["music_"+str(layout_num+1)][7]=i
+	
+	print(save_dictionary["music_"+str(layout_num+1)])
 	save_to_file()
 	
 	pass # Replace with function body.

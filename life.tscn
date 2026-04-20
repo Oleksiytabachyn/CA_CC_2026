@@ -289,7 +289,7 @@ metadata/_edit_use_anchors_ = true
 [node name="borncells" type="Node2D" parent="menu/musicalsettings" unique_id=1323497085]
 z_index = 1
 
-[node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/borncells" unique_id=1858238563]
+[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/borncells" unique_id=1858238563]
 z_index = 1
 offset_left = 56.666683
 offset_top = 435.77777
@@ -349,20 +349,10 @@ offset_bottom = 500.77777
 button_pressed = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Cellsdied" type="Node2D" parent="menu/musicalsettings" unique_id=1628548458]
+[node name="cellsdied" type="Node2D" parent="menu/musicalsettings" unique_id=1628548458]
 z_index = 1
 
-[node name="CheckBox9" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=713902850]
-z_index = 1
-offset_left = 379.66666
-offset_top = 503.77777
-offset_right = 482.66666
-offset_bottom = 535.7778
-button_group = ExtResource("3_kt3ow")
-text = "channel 9"
-metadata/_edit_use_anchors_ = true
-
-[node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=929154338]
+[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/cellsdied" unique_id=929154338]
 z_index = 1
 offset_left = 47.666683
 offset_top = 499.77777
@@ -372,7 +362,7 @@ button_group = ExtResource("3_kt3ow")
 text = "channel 0"
 metadata/_edit_use_anchors_ = true
 
-[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=1581463576]
+[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/cellsdied" unique_id=1581463576]
 z_index = 1
 offset_left = 155.66669
 offset_top = 502.77777
@@ -383,7 +373,7 @@ button_group = ExtResource("3_kt3ow")
 text = "channel 1"
 metadata/_edit_use_anchors_ = true
 
-[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/Cellsdied" unique_id=778721093]
+[node name="CheckBox3" type="CheckBox" parent="menu/musicalsettings/cellsdied" unique_id=778721093]
 z_index = 1
 offset_left = 263.66666
 offset_top = 501.77777
@@ -391,6 +381,16 @@ offset_right = 366.66666
 offset_bottom = 533.7778
 button_group = ExtResource("3_kt3ow")
 text = "channel 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox4" type="CheckBox" parent="menu/musicalsettings/cellsdied" unique_id=713902850]
+z_index = 1
+offset_left = 379.66663
+offset_top = 503.77783
+offset_right = 482.66663
+offset_bottom = 535.77783
+button_group = ExtResource("3_kt3ow")
+text = "channel 9"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label4" type="Label" parent="menu/musicalsettings" unique_id=1972657535]
@@ -414,7 +414,7 @@ metadata/_edit_use_anchors_ = true
 [node name="deadcells" type="Node2D" parent="menu/musicalsettings" unique_id=1697719027]
 z_index = 1
 
-[node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=1150807699]
+[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=1150807699]
 z_index = 1
 offset_left = 45.666683
 offset_top = 566.7778
@@ -424,7 +424,7 @@ button_group = ExtResource("4_43o0x")
 text = "channel 0"
 metadata/_edit_use_anchors_ = true
 
-[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=1362229328]
+[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=1362229328]
 z_index = 1
 offset_left = 153.66669
 offset_top = 569.7778
@@ -434,7 +434,7 @@ button_group = ExtResource("4_43o0x")
 text = "channel 1"
 metadata/_edit_use_anchors_ = true
 
-[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=543565310]
+[node name="CheckBox3" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=543565310]
 z_index = 1
 offset_left = 261.66666
 offset_top = 568.7778
@@ -445,7 +445,7 @@ button_group = ExtResource("4_43o0x")
 text = "channel 2"
 metadata/_edit_use_anchors_ = true
 
-[node name="CheckBox9" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=646959693]
+[node name="CheckBox4" type="CheckBox" parent="menu/musicalsettings/deadcells" unique_id=646959693]
 z_index = 1
 offset_left = 374.66666
 offset_top = 568.7778
@@ -476,17 +476,7 @@ metadata/_edit_use_anchors_ = true
 [node name="allivecells" type="Node2D" parent="menu/musicalsettings" unique_id=393568458]
 z_index = 1
 
-[node name="CheckBox9" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=704225220]
-offset_left = 384.66666
-offset_top = 632.7778
-offset_right = 487.66666
-offset_bottom = 664.7778
-button_pressed = true
-button_group = ExtResource("5_g02ej")
-text = "channel 9"
-metadata/_edit_use_anchors_ = true
-
-[node name="CheckBox" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=1486180097]
+[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=1486180097]
 z_index = 1
 offset_left = 52.666683
 offset_top = 628.7778
@@ -496,7 +486,7 @@ button_group = ExtResource("5_g02ej")
 text = "channel 0"
 metadata/_edit_use_anchors_ = true
 
-[node name="CheckBox1" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=66549910]
+[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=66549910]
 z_index = 1
 offset_left = 160.66669
 offset_top = 631.7778
@@ -506,7 +496,7 @@ button_group = ExtResource("5_g02ej")
 text = "channel 1"
 metadata/_edit_use_anchors_ = true
 
-[node name="CheckBox2" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=541923628]
+[node name="CheckBox3" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=541923628]
 z_index = 1
 offset_left = 268.66666
 offset_top = 630.7778
@@ -514,6 +504,16 @@ offset_right = 371.66666
 offset_bottom = 662.7778
 button_group = ExtResource("5_g02ej")
 text = "channel 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox4" type="CheckBox" parent="menu/musicalsettings/allivecells" unique_id=704225220]
+offset_left = 384.66663
+offset_top = 632.7778
+offset_right = 487.66663
+offset_bottom = 664.7778
+button_pressed = true
+button_group = ExtResource("5_g02ej")
+text = "channel 9"
 metadata/_edit_use_anchors_ = true
 
 [node name="channels" type="Node2D" parent="menu/musicalsettings" unique_id=1775736745]

@@ -38,53 +38,53 @@ var save_dictionary: Dictionary={
 	"example_1":[],
 	"charecteristics_1":[50,"1-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_1": [true,true,true,true,0,1,2,3], 
-	"channels_1":[0,3,5,0,90,0,90,0,90],
+	"channels_1":[0,5,3,90,90,90,0,0,0],
 	
 	"example_2":[],
 	"charecteristics_2":[50,"2-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_2": [true,true,true,true,0,1,2,3],
-	"channels_2":[0,3,5,0,90,0,90,0,90], 
+	"channels_2":[0,5,3,90,90,90,0,0,0], 
 	
 	"example_3":[],
 	"charecteristics_3":[50,"3-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_3": [true,true,true,true,0,1,2,3],
-	"channels_3":[0,3,5,0,90,0,90,0,90], 
+	"channels_3":[0,5,3,90,90,90,0,0,0], 
 	
 	"example_4":[],
 	"charecteristics_4":[50,"4-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_4": [true,true,true,true,0,1,2,3],
-	"channels_4":[0,3,5,0,90,0,90,0,90], 
+	"channels_4":[0,5,3,90,90,90,0,0,0], 
 	
 	
 	"example_5":[],
 	"charecteristics_5":[50,"5-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_5": [true,true,true,true,0,1,2,3],
-	"channels_5":[0,3,5,0,90,0,90,0,90], 
+	"channels_5":[0,5,3,90,90,90,0,0,0], 
 	
 	"example_6":[],
 	"charecteristics_6":[50,"6-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_6": [true,true,true,true,0,1,2,3],
-	"channels_6":[0,3,5,0,90,0,90,0,90], 
+	"channels_6":[0,5,3,90,90,90,0,0,0], 
 	
 	"example_7":[],
 	"charecteristics_7":[50,"7-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_7": [true,true,true,true,0,1,2,3],
-	"channels_7":[0,3,5,0,90,0,90,0,90], 
+	"channels_7":[0,5,3,90,90,90,0,0,0], 
 	
 	"example_8":[],
 	"charecteristics_8":[50,"8-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_8": [true,true,true,true,0,1,2,3],
-	"channels_8":[0,3,5,0,90,0,90,0,90], 
+	"channels_8":[0,5,3,90,90,90,0,0,0], 
 	
 	"example_9":[],
 	"charecteristics_9":[50,"9-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_9": [true,true,true,true,0,1,2,3],
-	"channels_9":[0,3,5,0,90,0,90,0,90], 
+	"channels_9":[0,5,3,90,90,90,0,0,0], 
 	
 	"example_10":[],
 	"charecteristics_10":[50,"10-empty",false,Color.BLACK,Color.WHITE,10],
 	"music_10": [true,true,true,true,0,1,2,3],
-	"channels_10":[0,3,5,0,90,0,90,0,90] 
+	"channels_10":[0,5,3,90,90,90,0,0,0] 
 }
 
 

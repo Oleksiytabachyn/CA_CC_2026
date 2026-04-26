@@ -30,15 +30,15 @@ This is a youtube video:
 
 # Description of the project
 
-This must be human written.
+This project is based on a famous John Conway's Game of life. The main inspitration behind this came to me during one of our lectures, this was to somehow add music to the game of life. This project is the end result of this idea and i am pretty proud of it, more about how it works will be later and for now ihope you'll enjoy my work.
 
 # Instructions for use
 
-This must be human written
+To start the game you just need to press the start button located in the top-right corner. But if you do it right away this will not produce good result as the board is empty by default, to fill it you can either paint with your mouse or press randomize button to randomize the board, both of this thing can also be done while the game is running. If you want to stop the game press stop button which is the same button as start, you can also reset the board by pressing reset button. All other buttons are customizations that you can apply. There are buttons for picking the color of dead and alive cells, sliders to choose game speed and board size, also you can pick what instruments play when cells are created, die, stay alive or stay dead as well as the highest and the lowest note. The last thing is saving system, to use it pick a spot where you want to save it(1-10) give your save a name and save it.
 
 # How it works:
 
-Explain in your own words
+
 
 # List of classes/assets in the project
 

@@ -42,19 +42,20 @@ To start the game you just need to press the start button located in the top-rig
 
 First i will briefly touch on how the game of life works. It creates matrix which functions as the board and fills it with true and false values, each turn it counts number of alive neighbours for each cells and stores them in a different matrix, then if the cell is alive and has 2 or 3 living neighbours it lives on, otherwise it dies, if dead cell has exactly 3 alive neighbours it becomes alive.
 
-## 
+## Generating music
+Second step is to generate music out of this i chose methid that works like this: each cell has a unique cordinate that is calculated like this row*50+column, i add all of those cordinates for cells that died, were born, stayed alive or stayed dead into four variables. Then for each of those variables i calculate a note that is supposed to play using this formula sum%(high-low)+low , where sum is the sum of coordinates, low and high are highest and lowest note respecively. Then it plays the those notes that are turned on.
 
 # List of classes/assets in the project
 
 | Class/asset | Source |
 |-----------|-----------|
-| MyClass.cs | Self written |
-| MyClass1.cs | Modified from [reference]() |
-| MyClass2.cs | From [reference]() |
+| life.tcsn | Self written |
+| life.gd | Self written |
+| MidiPlayer | [reference](https://godotengine.org/asset-library/asset/1667) by [arlez80](https://godotengine.org/asset-library/asset?user=arlez80) |
 
 # References
-* Item 1
-* Item 2
+* [Godot Midi Player](https://godotengine.org/asset-library/asset/1667) By [arlez80](https://godotengine.org/asset-library/asset?user=arlez80)
+* [Game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) by [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway)
 
 # What I am most proud of in the assignment
 

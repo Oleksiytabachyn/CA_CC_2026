@@ -11,7 +11,7 @@ This project was done alone
 
 # Video demonstration
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](http://img.youtube.com/vi/J7bkLX-bvhg/0.jpg)](https://youtu.be/J7bkLX-bvhg)
 
 # Screenshots
 
@@ -23,9 +23,6 @@ This is an image using an absolute URL:
 
 ![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
 
-This is a youtube video:
-
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
 
 
 # Description of the project

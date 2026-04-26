@@ -17,7 +17,7 @@ This project was done alone
 
 This is an image using a relative URL:
 
-![An image](../images/p8.png)
+![An image](Image1)
 
 This is an image using an absolute URL:
 

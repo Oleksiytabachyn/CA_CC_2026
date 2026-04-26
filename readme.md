@@ -38,7 +38,11 @@ To start the game you just need to press the start button located in the top-rig
 
 # How it works:
 
+## The game of life
 
+First i will briefly touch on how the game of life works. It creates matrix which functions as the board and fills it with true and false values, each turn it counts number of alive neighbours for each cells and stores them in a different matrix, then if the cell is alive and has 2 or 3 living neighbours it lives on, otherwise it dies, if dead cell has exactly 3 alive neighbours it becomes alive.
+
+## 
 
 # List of classes/assets in the project
 

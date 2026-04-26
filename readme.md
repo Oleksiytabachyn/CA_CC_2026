@@ -15,14 +15,13 @@ This project was done alone
 
 # Screenshots
 
-This is an image using a relative URL:
 
-![An image](Image1)
 
-This is an image using an absolute URL:
+![Screenshot1](Image1)
 
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
+![Screenshot2](Image2)
 
+![Screenshot3](image3)
 
 
 # Description of the project
@@ -50,18 +49,25 @@ Second step is to generate music out of this i chose methid that works like this
 | life.gd | Self written |
 | MidiPlayer | [reference](https://godotengine.org/asset-library/asset/1667) by [arlez80](https://godotengine.org/asset-library/asset?user=arlez80) |
 
+
 # References
 * [Godot Midi Player](https://godotengine.org/asset-library/asset/1667) By [arlez80](https://godotengine.org/asset-library/asset?user=arlez80)
 * [Game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) by [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway)
+* [Godot tutorial](https://www.youtube.com/watch?v=xG2GGniUa5o)
 
 # What I am most proud of in the assignment
 
-- Each team member
-- Must be human written. Reflect on what you achieved and share it
+There are 2 things i am really proud of in this project and i couldn't choose one of them
+
+## Saving system
+The first thing i am proud of is the saving system that allows you to save your layout. I am proud of how i figured almost all of it on my own with a small start boost from a youtube tutorial. I really like how it turned out to be and the fact that similliar system can be used in a future projects is another reason of why i like it so much
+
+## Painting
+
+Another thing that i am very proud of is painting over the board. This i figured out fully on my own through trial and error. The most frustrasting part was to make it that while you hold mouse it paints under it and when you click on alive cell it dies. Those two tings were easy to do separately but really hard to get working together.
 
 # What I learned
 
-- Each team member
-- Must be human written. Reflect on what you learned and share it
+I learned a lot about godot, game design and git. The most valuable skills that i picked up while working on it are probably how t work with git and how to debug my code. Firstly the ability to work with git is extremely important in the computer science industry so i am really happy that this project helped me improve my skill with it. Secondly i don't htink i ever had to do as much debugging and error hunting on anything i ever wrote as on this project and i fell that because of this i got much better at it. In my opinion being able to spot bugs in your code and fix them is really valuable skill and i am glad thati got better at it. 
 
 

@@ -1,4 +1,4 @@
-#Playing music with game of life
+# Playing music with game of life
 
 
 Name: Oleksiy Tabachyn

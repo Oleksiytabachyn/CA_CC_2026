@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+
+<!DOCTYPE Persons[
+<!ELEMENT Persons (Informant+, GardaCallTaker+, DispatchMember+, GISCMember+, PAFMember+)>
+<!ELEMENT Informant   (Person.name, Person.age, Person.gender,Informant.callhistory*)>
+<!ATTLIST Informant informantID CDATA #IMPLIED>
+<!ELEMENT GardaCallTaker   (Person.name, Person.age, Person.gender, GardaCallTaker.isActive, GardaCallTaker.isBusy, GardaCallTaker.callhistory*)>
+<!ATTLIST GardaCallTaker GardaCallTakerID CDATA #IMPLIED>
+<!ELEMENT DispatchMember   (Person.name, Person.age, Person.gender, DispatchMember.dispatchHistory*)>
+<!ATTLIST DispatchMember DispatchMemberID CDATA #IMPLIED>
+<!ELEMENT GISCMember   (Person.name, Person.age, Person.gender)>
+<!ATTLIST GISCMember GISCMemberID CDATA #IMPLIED>
+<!ELEMENT PAFMember   (Person.name, Person.age, Person.gender,PAFMember.ReviewHistory*)>
+<!ATTLIST PAFMember PAFMemberID CDATA #IMPLIED>
+<!ELEMENT Person.name   (firstname+, lastname)>
+<!ELEMENT firstname   (#PCDATA)>
+<!ELEMENT lastname   (#PCDATA)>
+<!ELEMENT Person.age  (#PCDATA)>
+<!ELEMENT Person.gender  (#PCDATA)>
+<!ELEMENT Informant.callhistory  (#PCDATA)>
+<!ELEMENT GardaCallTaker.callhistory  (#PCDATA)>
+<!ELEMENT GardaCallTaker.isActive  (#PCDATA)>
+<!ELEMENT GardaCallTaker.isBusy  (#PCDATA)>
+<!ELEMENT DispatchMember.dispatchHistory  (#PCDATA)>
+<!ELEMENT PAFMember.ReviewHistory  (#PCDATA)>
+]>
+
+
+<Persons>
+    <Informant informantID="99999">
+        <Person.name>
+            <firstname>Oleksiy</firstname>
+            <lastname>Tabachyn</lastname>
+        </Person.name>
+        <Person.age>18</Person.age>
+        <Person.gender>Male</Person.gender>
+
+        <Informant.callhistory>12345678</Informant.callhistory> <!-- THis is a callID-->
+        <Informant.callhistory>12345679</Informant.callhistory>
+        <Informant.callhistory>12345680</Informant.callhistory>
+    </Informant>
+
+    <Informant informantID="99998">
+        <Person.name>
+            <firstname>Elizabeth</firstname>
+            <lastname>Swan</lastname>
+        </Person.name>
+        <Person.age>35</Person.age>
+        <Person.gender>Female</Person.gender>
+
+        <Informant.callhistory>00000001</Informant.callhistory> 
+        <Informant.callhistory>00000002</Informant.callhistory>
+
+    </Informant>
+
+    <GardaCallTaker GardaCallTakerID="11111">
+        <Person.name>
+            <firstname>Serj</firstname>
+            <lastname>Tankian</lastname>
+        </Person.name>
+        <Person.age>40</Person.age>
+        <Person.gender>Male</Person.gender>
+
+        <GardaCallTaker.isActive>Yes</GardaCallTaker.isActive> 
+        <GardaCallTaker.isBusy>No</GardaCallTaker.isBusy>
+
+        <GardaCallTaker.callhistory>00000003</GardaCallTaker.callhistory>
+        <GardaCallTaker.callhistory>12345678</GardaCallTaker.callhistory>
+        <GardaCallTaker.callhistory>90909090</GardaCallTaker.callhistory>
+    </GardaCallTaker>
+
+    <DispatchMember DispatchMemberID="01234">
+        <Person.name>
+            <firstname>Michael</firstname>
+            <lastname>Jakson</lastname>
+        </Person.name>
+        <Person.age>60</Person.age>
+        <Person.gender>Male<!-- Possibly something else--></Person.gender>
+
+        <DispatchMember.dispatchHistory>89709690</DispatchMember.dispatchHistory> 
+        <DispatchMember.dispatchHistory>34500000</DispatchMember.dispatchHistory>
+
+    </DispatchMember>
+
+    <GISCMember GISCMemberID="89700">
+        <Person.name>
+            <firstname>Emily</firstname>
+            <lastname>Armstrong</lastname>
+        </Person.name>
+        <Person.age>30</Person.age>
+        <Person.gender>Female</Person.gender>
+
+    </GISCMember>
+
+    <PAFMember PAFMemberID="45638">
+        <Person.name>
+            <firstname>Michael</firstname>
+            <lastname>Jakson</lastname>
+        </Person.name>
+        <Person.age>60</Person.age>
+        <Person.gender>Male</Person.gender>
+
+        <PAFMember.ReviewHistory>98705080</PAFMember.ReviewHistory> 
+        <PAFMember.ReviewHistory>54637799</PAFMember.ReviewHistory>
+
+    </PAFMember>
+
+
+</Persons>
